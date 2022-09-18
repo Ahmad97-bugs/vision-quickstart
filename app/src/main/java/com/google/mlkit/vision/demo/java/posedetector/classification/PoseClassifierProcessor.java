@@ -25,6 +25,7 @@ import android.util.Log;
 import androidx.annotation.WorkerThread;
 
 import com.google.common.base.Preconditions;
+import com.google.mlkit.vision.demo.java.posedetector.PoseData;
 import com.google.mlkit.vision.pose.Pose;
 
 import java.io.BufferedReader;
@@ -45,6 +46,7 @@ public class PoseClassifierProcessor {
     private static final String TAG = "PoseClassifierProcessor";
     private static final String POSE_SAMPLES_FILE = "pose/fitness_poses_csvs_out.csv";
     public static boolean isCount = false;
+    private static int instanceCount = 0;
 
 
     // Specify classes for which we want rep counting.
@@ -130,7 +132,7 @@ public class PoseClassifierProcessor {
 
             for (RepetitionCounter repCounter : repCounters) {
                 int repsBefore = repCounter.getNumRepeats();
-                int repsAfter = repCounter.addClassificationResult(classification, pose);
+                int repsAfter = repCounter.addClassificationResult(classification, pose, instanceCount++);
                 if (repsAfter > repsBefore) {
                     // Play a fun beep when rep counter updates.
 //          ToneGenerator tg = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
@@ -160,26 +162,36 @@ public class PoseClassifierProcessor {
 
     public static double calculatedJumpHeight() {
         RepetitionCounter jumpRecord = repCounters.get(0);
-        List<Pose> poseList = jumpRecord.getPoseList();
-        List<Long> timeList = jumpRecord.getTimeList();
-        if (!poseList.isEmpty()) {
-            float firstHeelIndex = (poseList.get(0).getPoseLandmark(31).getPosition().y + poseList.get(0).getPoseLandmark(32).getPosition().y) / 2;
+        RepetitionCounter downRecord = repCounters.get(1);
+        List<PoseData> jumpPose = jumpRecord.getPdList();
+        PoseData startPD = null;
+        PoseData endPD = null;
+
+        for(PoseData pd : downRecord.getPdList()){
+            if(pd.getInstanceCounter() == jumpPose.get(0).getInstanceCounter() - 1){
+                startPD = pd;
+                break;
+            }
+        }
+
+        if (!jumpPose.isEmpty()) {
+            float firstHeelIndex = (startPD.getPose().getPoseLandmark(31).getPosition().y - startPD.getPose().getPoseLandmark(32).getPosition().y) / 2;
             float highestPoint = firstHeelIndex;
             float point;
-            int count = 0;
-            int highestCount = 0;
 
-            for (Pose p : poseList) {
-                point = (p.getPoseLandmark(31).getPosition().y + p.getPoseLandmark(32).getPosition().y) / 2;
+            for (PoseData p : jumpPose) {
+                point = (p.getPose().getPoseLandmark(31).getPosition().y + p.getPose().getPoseLandmark(32).getPosition().y) / 2;
+                System.out.println(point);
                 if (point > highestPoint) {
                     highestPoint = point;
-                    highestCount = count;
+                    endPD = p;
                 }
-                count++;
             }
-            Long start = timeList.get(0);
-            Long stop = timeList.get(highestCount);
-            int timeInAir = (int) (stop - start) / 1000;
+            Long start = startPD.getTime();
+            Long stop = endPD.getTime();
+            System.out.println(start);
+            System.out.println(stop);
+            double timeInAir = (double) ((stop - start) / 1000);
 
             double jumpHeight = timeInAir * timeInAir * 1.22625;
             return jumpHeight;

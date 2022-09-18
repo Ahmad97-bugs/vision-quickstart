@@ -16,6 +16,7 @@
 
 package com.google.mlkit.vision.demo.java.posedetector.classification;
 
+import com.google.mlkit.vision.demo.java.posedetector.PoseData;
 import com.google.mlkit.vision.pose.Pose;
 
 import java.util.ArrayList;
@@ -37,21 +38,19 @@ public class RepetitionCounter {
 
     private int numRepeats;
     private boolean poseEntered;
-    private List<Long> timeList;
-    private List<Pose> poseList;
+    private List<PoseData> pdList;
 
     public RepetitionCounter(String className) {
         this(className, DEFAULT_ENTER_THRESHOLD, DEFAULT_EXIT_THRESHOLD);
     }
 
     public RepetitionCounter(String className, float enterThreshold, float exitThreshold) {
+        pdList = new ArrayList<PoseData>();
         this.className = className;
         this.enterThreshold = enterThreshold;
         this.exitThreshold = exitThreshold;
         numRepeats = 0;
         poseEntered = false;
-        timeList = new ArrayList<Long>();
-        poseList = new ArrayList<Pose>();
     }
 
     /**
@@ -60,7 +59,7 @@ public class RepetitionCounter {
      * @param classificationResult {link ClassificationResult} of class to confidence values.
      * @return number of reps.
      */
-    public int addClassificationResult(ClassificationResult classificationResult, Pose pose) {
+    public int addClassificationResult(ClassificationResult classificationResult, Pose pose, int instanceCounter) {
         float poseConfidence = classificationResult.getClassConfidence(className);
 
         if (!poseEntered) {
@@ -71,10 +70,8 @@ public class RepetitionCounter {
         if (poseConfidence < exitThreshold) {
             numRepeats++;
             poseEntered = false;
-            timeList.add(new Date().getTime());
-            poseList.add(pose);
+            pdList.add(new PoseData(new Date().getTime(), pose, instanceCounter));
         }
-
         return numRepeats;
     }
 
@@ -86,11 +83,11 @@ public class RepetitionCounter {
         return numRepeats;
     }
 
-    public List<Pose> getPoseList(){
-        return poseList;
+    public void setPdList(List<PoseData> pdList) {
+        this.pdList = pdList;
     }
 
-    public List<Long> getTimeList(){
-        return timeList;
+    public List<PoseData> getPdList() {
+        return pdList;
     }
 }

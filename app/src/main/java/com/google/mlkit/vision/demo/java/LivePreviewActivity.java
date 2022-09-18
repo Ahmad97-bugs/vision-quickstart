@@ -89,9 +89,9 @@ public final class LivePreviewActivity extends AppCompatActivity
                     record.setText("Start Recording");
                     double jumpHeight = PoseClassifierProcessor.calculatedJumpHeight();
                     if (jumpHeight == (double) 0) {
-                        Toast.makeText(LivePreviewActivity.this, "No jump was recorded " + jumpHeight, Toast.LENGTH_LONG).show();
+                        Toast.makeText(LivePreviewActivity.this, "No jump was recorded", Toast.LENGTH_LONG).show();
                     } else
-                        Toast.makeText(LivePreviewActivity.this, "Jump height is: " + jumpHeight, Toast.LENGTH_LONG).show();
+                        Toast.makeText(LivePreviewActivity.this, "Jump height is: " + jumpHeight + " cm", Toast.LENGTH_LONG).show();
                 }
             }
         });
