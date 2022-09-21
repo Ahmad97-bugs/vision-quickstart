@@ -14,7 +14,7 @@
           <stringArguments>
             <stringArg name="classpath">
               <args>
-                <arg>$MODULE_DIR$/../../../app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/89450e8bdc22127e310458d2e4e8cefb/transformed/multidex-2.0.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/8686dd611f0fa1cdbe48068a250a6efc/transformed/jetified-kotlin-android-extensions-runtime-1.5.31.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/fa81d22eaebb794608cdfb79089aeefe/transformed/jetified-pose-detection-18.0.0-beta2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/4733d47c5770ad82a2eeac1afaed1212/transformed/jetified-pose-detection-accurate-18.0.0-beta2-api.jar</arg>
@@ -29,7 +29,6 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/52c6bb7e34c4780e36f2a83296962719/transformed/jetified-kotlin-stdlib-1.5.31.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/7562b4b8ea427c69eb732d0794a11d6a/transformed/jetified-annotations-13.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/d4e851ec70827e1b5f131be3f04db443/transformed/jetified-kotlin-stdlib-common-1.5.31.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/89450e8bdc22127e310458d2e4e8cefb/transformed/multidex-2.0.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/9ed04656a60b3d20b47c7654574ade4a/transformed/jetified-barcode-scanning-17.0.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/901a77d4e53c07dbad1aafd2d4d1d355/transformed/jetified-object-detection-17.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2f98ddc0e34fa2e6657278d8747a234c/transformed/jetified-object-detection-custom-17.0.0-api.jar</arg>

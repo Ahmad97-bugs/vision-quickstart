@@ -47,7 +47,6 @@ public final class ChooserActivity extends AppCompatActivity
           }
           : new Class<?>[] {
             LivePreviewActivity.class,
-            CameraXLivePreviewActivity.class,
           };
 
   private static final int[] DESCRIPTION_IDS =
@@ -57,7 +56,6 @@ public final class ChooserActivity extends AppCompatActivity
           }
           : new int[] {
             R.string.desc_camera_source_activity,
-            R.string.desc_camerax_live_preview_activity
           };
 
   @Override

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-75:12
-INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-75:12
-INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-75:12
-INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-75:12
+ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-73:12
 MERGED from [com.google.mlkit:pose-detection:18.0.0-beta2] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\8a3de45e678bbc89760793d74fd3fa1e\transformed\jetified-pose-detection-18.0.0-beta2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.mlkit:pose-detection-accurate:18.0.0-beta2] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\00b2dacaa65ee7be9fa7c0ff3fa8cbc1\transformed\jetified-pose-detection-accurate-18.0.0-beta2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.mlkit:pose-detection-common:18.0.0-beta2] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\c8fba1e4f18ed059ca059194854971f2\transformed\jetified-pose-detection-common-18.0.0-beta2\AndroidManifest.xml:2:1-35:12
@@ -84,22 +84,22 @@ MERGED from [androidx.sqlite:sqlite:2.1.0] C:\Users\ahmad.khateeb\.gradle\caches
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\ac62129872e1dfb74e44c079f14dafb1\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\82a67e81fdb440fc411a820d9438e20d\transformed\jetified-image-1.0.0-beta1\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\3b09fb6f07030b199f3594a823bdf54c\transformed\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-75:12
-INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-75:12
-INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-75:12
+INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-73:12
 	package
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:5:5-43
 		INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml
 		INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-75:12
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-73:12
 		INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:4:5-51
 	android:versionCode
 		INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-75:12
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:2:1-73:12
 		INJECTED from C:\vision-quickstart\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:3:5-63
@@ -310,7 +310,7 @@ ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:22:5-64
 	android:name
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:22:22-62
 application
-ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:24:5-68:19
+ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:24:5-66:19
 MERGED from [com.google.mlkit:pose-detection:18.0.0-beta2] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\8a3de45e678bbc89760793d74fd3fa1e\transformed\jetified-pose-detection-18.0.0-beta2\AndroidManifest.xml:7:5-20
 MERGED from [com.google.mlkit:pose-detection:18.0.0-beta2] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\8a3de45e678bbc89760793d74fd3fa1e\transformed\jetified-pose-detection-18.0.0-beta2\AndroidManifest.xml:7:5-20
 MERGED from [com.google.mlkit:pose-detection-accurate:18.0.0-beta2] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\00b2dacaa65ee7be9fa7c0ff3fa8cbc1\transformed\jetified-pose-detection-accurate-18.0.0-beta2\AndroidManifest.xml:7:5-20
@@ -395,14 +395,14 @@ ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:36:9-38:62
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:38:13-60
 	android:name
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:37:13-64
-activity#com.google.mlkit.vision.demo.java.ChooserActivity
+activity#com.google.mlkit.vision.demo.EntryChoiceActivity
 ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:40:9-48:20
 	android:exported
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:42:13-36
 	android:theme
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:43:13-44
 	android:name
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:41:13-49
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:41:13-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:44:13-47:29
 action#android.intent.action.MAIN
@@ -413,36 +413,34 @@ category#android.intent.category.LAUNCHER
 ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:46:17-76
 	android:name
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:46:27-74
+activity#com.google.mlkit.vision.demo.java.ChooserActivity
+ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:50:9-53:20
+	android:exported
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:52:13-37
+	android:name
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:51:13-49
 activity#com.google.mlkit.vision.demo.java.LivePreviewActivity
-ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:51:9-55:20
+ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:55:9-59:20
 	android:exported
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:53:13-37
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:57:13-37
 	android:theme
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:54:13-44
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:58:13-44
 	android:name
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:52:13-53
-activity#com.google.mlkit.vision.demo.java.CameraXLivePreviewActivity
-ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:57:9-61:20
-	android:exported
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:59:13-37
-	android:theme
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:60:13-44
-	android:name
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:58:13-60
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:56:13-53
 activity#com.google.mlkit.vision.demo.preference.SettingsActivity
-ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:64:9-66:39
+ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:62:9-64:39
 	android:exported
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:66:13-37
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:64:13-37
 	android:name
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:65:13-56
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:63:13-56
 queries
-ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:69:5-73:15
+ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:67:5-71:15
 intent#action:name:android.media.action.IMAGE_CAPTURE
-ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:70:9-72:18
+ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:68:9-70:18
 action#android.media.action.IMAGE_CAPTURE
-ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:71:13-73
+ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:69:13-73
 	android:name
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:71:21-70
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:69:21-70
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.mlkit:pose-detection-common:18.0.0-beta2] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\c8fba1e4f18ed059ca059194854971f2\transformed\jetified-pose-detection-common-18.0.0-beta2\AndroidManifest.xml:7:5-79
 MERGED from [com.google.mlkit:object-detection:17.0.0] C:\Users\ahmad.khateeb\.gradle\caches\transforms-3\4ea840384d4aea0f69c2f300e3523401\transformed\jetified-object-detection-17.0.0\AndroidManifest.xml:7:5-79

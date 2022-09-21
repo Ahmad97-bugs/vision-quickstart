@@ -45,6 +45,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory;
 import com.google.android.gms.common.annotation.KeepName;
 import com.google.mlkit.common.MlKitException;
+import com.google.mlkit.common.model.LocalModel;
 import com.google.mlkit.vision.demo.CameraXViewModel;
 import com.google.mlkit.vision.demo.GraphicOverlay;
 import com.google.mlkit.vision.demo.R;
@@ -52,6 +53,10 @@ import com.google.mlkit.vision.demo.VisionImageProcessor;
 import com.google.mlkit.vision.demo.java.posedetector.PoseDetectorProcessor;
 import com.google.mlkit.vision.demo.preference.PreferenceUtils;
 import com.google.mlkit.vision.demo.preference.SettingsActivity;
+import com.google.mlkit.vision.label.custom.CustomImageLabelerOptions;
+import com.google.mlkit.vision.label.defaults.ImageLabelerOptions;
+import com.google.mlkit.vision.objects.custom.CustomObjectDetectorOptions;
+import com.google.mlkit.vision.objects.defaults.ObjectDetectorOptions;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
 import com.google.mlkit.vision.text.chinese.ChineseTextRecognizerOptions;
 import com.google.mlkit.vision.text.devanagari.DevanagariTextRecognizerOptions;
@@ -65,13 +70,13 @@ import java.util.List;
 @KeepName
 @RequiresApi(VERSION_CODES.LOLLIPOP)
 public final class CameraXLivePreviewActivity extends AppCompatActivity
-    implements OnItemSelectedListener, CompoundButton.OnCheckedChangeListener {
+        implements OnItemSelectedListener, CompoundButton.OnCheckedChangeListener {
   private static final String TAG = "CameraXLivePreview";
 
   private static final String OBJECT_DETECTION = "Object Detection";
   private static final String OBJECT_DETECTION_CUSTOM = "Custom Object Detection";
   private static final String CUSTOM_AUTOML_OBJECT_DETECTION =
-      "Custom AutoML Object Detection (Flower)";
+          "Custom AutoML Object Detection (Flower)";
   private static final String FACE_DETECTION = "Face Detection";
   private static final String BARCODE_SCANNING = "Barcode Scanning";
   private static final String IMAGE_LABELING = "Image Labeling";
@@ -96,7 +101,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
   @Nullable private VisionImageProcessor imageProcessor;
   private boolean needUpdateGraphicOverlayImageSourceInfo;
 
-  private String selectedModel = OBJECT_DETECTION;
+  private String selectedModel = POSE_DETECTION;
   private int lensFacing = CameraSelector.LENS_FACING_BACK;
   private CameraSelector cameraSelector;
 
@@ -106,7 +111,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     Log.d(TAG, "onCreate");
 
     if (savedInstanceState != null) {
-      selectedModel = savedInstanceState.getString(STATE_SELECTED_MODEL, OBJECT_DETECTION);
+      selectedModel = savedInstanceState.getString(STATE_SELECTED_MODEL, POSE_DETECTION);
     }
     cameraSelector = new CameraSelector.Builder().requireLensFacing(lensFacing).build();
 
@@ -122,21 +127,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
 
     Spinner spinner = findViewById(R.id.spinner);
     List<String> options = new ArrayList<>();
-    options.add(OBJECT_DETECTION);
-    options.add(OBJECT_DETECTION_CUSTOM);
-    options.add(CUSTOM_AUTOML_OBJECT_DETECTION);
-    options.add(FACE_DETECTION);
-    options.add(BARCODE_SCANNING);
-    options.add(IMAGE_LABELING);
-    options.add(IMAGE_LABELING_CUSTOM);
-    options.add(CUSTOM_AUTOML_LABELING);
     options.add(POSE_DETECTION);
-    options.add(SELFIE_SEGMENTATION);
-    options.add(TEXT_RECOGNITION_LATIN);
-    options.add(TEXT_RECOGNITION_CHINESE);
-    options.add(TEXT_RECOGNITION_DEVANAGARI);
-    options.add(TEXT_RECOGNITION_JAPANESE);
-    options.add(TEXT_RECOGNITION_KOREAN);
 
     // Creating adapter for spinner
     ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, R.layout.spinner_style, options);
@@ -150,24 +141,24 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     facingSwitch.setOnCheckedChangeListener(this);
 
     new ViewModelProvider(this, AndroidViewModelFactory.getInstance(getApplication()))
-        .get(CameraXViewModel.class)
-        .getProcessCameraProvider()
-        .observe(
-            this,
-            provider -> {
-              cameraProvider = provider;
-              bindAllCameraUseCases();
-            });
+            .get(CameraXViewModel.class)
+            .getProcessCameraProvider()
+            .observe(
+                    this,
+                    provider -> {
+                      cameraProvider = provider;
+                      bindAllCameraUseCases();
+                    });
 
     ImageView settingsButton = findViewById(R.id.settings_button);
     settingsButton.setOnClickListener(
-        v -> {
-          Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-          intent.putExtra(
-              SettingsActivity.EXTRA_LAUNCH_SOURCE,
-              SettingsActivity.LaunchSource.CAMERAX_LIVE_PREVIEW);
-          startActivity(intent);
-        });
+            v -> {
+              Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+              intent.putExtra(
+                      SettingsActivity.EXTRA_LAUNCH_SOURCE,
+                      SettingsActivity.LaunchSource.CAMERAX_LIVE_PREVIEW);
+              startActivity(intent);
+            });
   }
 
   @Override
@@ -196,11 +187,11 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
       return;
     }
     int newLensFacing =
-        lensFacing == CameraSelector.LENS_FACING_FRONT
-            ? CameraSelector.LENS_FACING_BACK
-            : CameraSelector.LENS_FACING_FRONT;
+            lensFacing == CameraSelector.LENS_FACING_FRONT
+                    ? CameraSelector.LENS_FACING_BACK
+                    : CameraSelector.LENS_FACING_FRONT;
     CameraSelector newCameraSelector =
-        new CameraSelector.Builder().requireLensFacing(newLensFacing).build();
+            new CameraSelector.Builder().requireLensFacing(newLensFacing).build();
     try {
       if (cameraProvider.hasCamera(newCameraSelector)) {
         Log.d(TAG, "Set facing to " + newLensFacing);
@@ -213,10 +204,10 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
       // Falls through
     }
     Toast.makeText(
-            getApplicationContext(),
-            "This device does not have lens with facing: " + newLensFacing,
-            Toast.LENGTH_SHORT)
-        .show();
+                    getApplicationContext(),
+                    "This device does not have lens with facing: " + newLensFacing,
+                    Toast.LENGTH_SHORT)
+            .show();
   }
 
   @Override
@@ -286,21 +277,21 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
       switch (selectedModel) {
         case POSE_DETECTION:
           PoseDetectorOptionsBase poseDetectorOptions =
-              PreferenceUtils.getPoseDetectorOptionsForLivePreview(this);
+                  PreferenceUtils.getPoseDetectorOptionsForLivePreview(this);
           boolean shouldShowInFrameLikelihood =
-              PreferenceUtils.shouldShowPoseDetectionInFrameLikelihoodLivePreview(this);
+                  PreferenceUtils.shouldShowPoseDetectionInFrameLikelihoodLivePreview(this);
           boolean visualizeZ = PreferenceUtils.shouldPoseDetectionVisualizeZ(this);
           boolean rescaleZ = PreferenceUtils.shouldPoseDetectionRescaleZForVisualization(this);
           boolean runClassification = PreferenceUtils.shouldPoseDetectionRunClassification(this);
           imageProcessor =
-              new PoseDetectorProcessor(
-                  this,
-                  poseDetectorOptions,
-                  shouldShowInFrameLikelihood,
-                  visualizeZ,
-                  rescaleZ,
-                  runClassification,
-                  /* isStreamMode = */ true);
+                  new PoseDetectorProcessor(
+                          this,
+                          poseDetectorOptions,
+                          shouldShowInFrameLikelihood,
+                          visualizeZ,
+                          rescaleZ,
+                          runClassification,
+                          /* isStreamMode = */ true);
           break;
         default:
           throw new IllegalStateException("Invalid model name");
@@ -308,10 +299,10 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     } catch (Exception e) {
       Log.e(TAG, "Can not create image processor: " + selectedModel, e);
       Toast.makeText(
-              getApplicationContext(),
-              "Can not create image processor: " + e.getLocalizedMessage(),
-              Toast.LENGTH_LONG)
-          .show();
+                      getApplicationContext(),
+                      "Can not create image processor: " + e.getLocalizedMessage(),
+                      Toast.LENGTH_LONG)
+              .show();
       return;
     }
 
@@ -324,30 +315,30 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
 
     needUpdateGraphicOverlayImageSourceInfo = true;
     analysisUseCase.setAnalyzer(
-        // imageProcessor.processImageProxy will use another thread to run the detection underneath,
-        // thus we can just runs the analyzer itself on main thread.
-        ContextCompat.getMainExecutor(this),
-        imageProxy -> {
-          if (needUpdateGraphicOverlayImageSourceInfo) {
-            boolean isImageFlipped = lensFacing == CameraSelector.LENS_FACING_FRONT;
-            int rotationDegrees = imageProxy.getImageInfo().getRotationDegrees();
-            if (rotationDegrees == 0 || rotationDegrees == 180) {
-              graphicOverlay.setImageSourceInfo(
-                  imageProxy.getWidth(), imageProxy.getHeight(), isImageFlipped);
-            } else {
-              graphicOverlay.setImageSourceInfo(
-                  imageProxy.getHeight(), imageProxy.getWidth(), isImageFlipped);
-            }
-            needUpdateGraphicOverlayImageSourceInfo = false;
-          }
-          try {
-            imageProcessor.processImageProxy(imageProxy, graphicOverlay);
-          } catch (MlKitException e) {
-            Log.e(TAG, "Failed to process image. Error: " + e.getLocalizedMessage());
-            Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT)
-                .show();
-          }
-        });
+            // imageProcessor.processImageProxy will use another thread to run the detection underneath,
+            // thus we can just runs the analyzer itself on main thread.
+            ContextCompat.getMainExecutor(this),
+            imageProxy -> {
+              if (needUpdateGraphicOverlayImageSourceInfo) {
+                boolean isImageFlipped = lensFacing == CameraSelector.LENS_FACING_FRONT;
+                int rotationDegrees = imageProxy.getImageInfo().getRotationDegrees();
+                if (rotationDegrees == 0 || rotationDegrees == 180) {
+                  graphicOverlay.setImageSourceInfo(
+                          imageProxy.getWidth(), imageProxy.getHeight(), isImageFlipped);
+                } else {
+                  graphicOverlay.setImageSourceInfo(
+                          imageProxy.getHeight(), imageProxy.getWidth(), isImageFlipped);
+                }
+                needUpdateGraphicOverlayImageSourceInfo = false;
+              }
+              try {
+                imageProcessor.processImageProxy(imageProxy, graphicOverlay);
+              } catch (MlKitException e) {
+                Log.e(TAG, "Failed to process image. Error: " + e.getLocalizedMessage());
+                Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT)
+                        .show();
+              }
+            });
 
     cameraProvider.bindToLifecycle(/* lifecycleOwner= */ this, cameraSelector, analysisUseCase);
   }

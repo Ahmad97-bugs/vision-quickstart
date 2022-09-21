@@ -27,67 +27,75 @@ import java.util.List;
  * Counts reps for the give class.
  */
 public class RepetitionCounter {
-    // These thresholds can be tuned in conjunction with the Top K values in {@link PoseClassifier}.
-    // The default Top K value is 10 so the range here is [0-10].
-    private static final float DEFAULT_ENTER_THRESHOLD = 6f;
-    private static final float DEFAULT_EXIT_THRESHOLD = 4f;
+  // These thresholds can be tuned in conjunction with the Top K values in {@link PoseClassifier}.
+  // The default Top K value is 10 so the range here is [0-10].
+  private static final float DEFAULT_ENTER_THRESHOLD = 6f;
+  private static final float DEFAULT_EXIT_THRESHOLD = 4f;
 
-    private final String className;
-    private final float enterThreshold;
-    private final float exitThreshold;
+  private final String className;
+  private final float enterThreshold;
+  private final float exitThreshold;
 
-    private int numRepeats;
-    private boolean poseEntered;
-    private List<PoseData> pdList;
+  private int numRepeats;
+  private boolean poseEntered;
+  private List<PoseData> pdList;
 
-    public RepetitionCounter(String className) {
-        this(className, DEFAULT_ENTER_THRESHOLD, DEFAULT_EXIT_THRESHOLD);
+  public static boolean start = false;
+
+  public RepetitionCounter(String className) {
+    this(className, DEFAULT_ENTER_THRESHOLD, DEFAULT_EXIT_THRESHOLD);
+  }
+
+  public RepetitionCounter(String className, float enterThreshold, float exitThreshold) {
+    pdList = new ArrayList<PoseData>();
+    this.className = className;
+    this.enterThreshold = enterThreshold;
+    this.exitThreshold = exitThreshold;
+    numRepeats = 0;
+    poseEntered = false;
+  }
+
+  /**
+   * Adds a new Pose classification result and updates reps for given class.
+   *
+   * @param classificationResult {link ClassificationResult} of class to confidence values.
+   * @return number of reps.
+   */
+  public int addClassificationResult(ClassificationResult classificationResult, Pose pose, int instanceCounter) {
+    float poseConfidence = classificationResult.getClassConfidence(className);
+    if(poseConfidence >= 6.0f && className.equals("squatjump_squat"))
+      start = true;
+    if(className.equals("squatjump_jump"))
+      System.out.println(poseConfidence);
+    if (!poseEntered) {
+      poseEntered = poseConfidence > enterThreshold;
+      if (poseConfidence >= 5 && start)
+        pdList.add(new PoseData(new Date().getTime(), pose, instanceCounter));
+      return numRepeats;
     }
 
-    public RepetitionCounter(String className, float enterThreshold, float exitThreshold) {
-        pdList = new ArrayList<PoseData>();
-        this.className = className;
-        this.enterThreshold = enterThreshold;
-        this.exitThreshold = exitThreshold;
-        numRepeats = 0;
-        poseEntered = false;
+    if (poseConfidence < exitThreshold) {
+      numRepeats++;
+      poseEntered = false;
+      if (start)
+        pdList.add(new PoseData(new Date().getTime(), pose, instanceCounter));
     }
+    return numRepeats;
+  }
 
-    /**
-     * Adds a new Pose classification result and updates reps for given class.
-     *
-     * @param classificationResult {link ClassificationResult} of class to confidence values.
-     * @return number of reps.
-     */
-    public int addClassificationResult(ClassificationResult classificationResult, Pose pose, int instanceCounter) {
-        float poseConfidence = classificationResult.getClassConfidence(className);
+  public String getClassName() {
+    return className;
+  }
 
-        if (!poseEntered) {
-            poseEntered = poseConfidence > enterThreshold;
-            return numRepeats;
-        }
+  public int getNumRepeats() {
+    return numRepeats;
+  }
 
-        if (poseConfidence < exitThreshold) {
-            numRepeats++;
-            poseEntered = false;
-            pdList.add(new PoseData(new Date().getTime(), pose, instanceCounter));
-        }
-        return numRepeats;
-    }
+  public void setPdList(List<PoseData> pdList) {
+    this.pdList = pdList;
+  }
 
-    public String getClassName() {
-        return className;
-    }
-
-    public int getNumRepeats() {
-        return numRepeats;
-    }
-
-    public void setPdList(List<PoseData> pdList) {
-        this.pdList = pdList;
-    }
-
-    public List<PoseData> getPdList() {
-        return pdList;
-    }
+  public List<PoseData> getPdList() {
+    return pdList;
+  }
 }

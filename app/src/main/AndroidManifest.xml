@@ -38,7 +38,7 @@
             android:value="barcode,face,ocr,ica,custom_ica"/>
 
         <activity
-            android:name=".java.ChooserActivity"
+            android:name=".EntryChoiceActivity"
             android:exported="true"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -47,15 +47,13 @@
             </intent-filter>
         </activity>
 
-
         <activity
-            android:name=".java.LivePreviewActivity"
-            android:exported="false"
-            android:theme="@style/AppTheme">
+            android:name=".java.ChooserActivity"
+            android:exported="false">
         </activity>
 
         <activity
-            android:name=".java.CameraXLivePreviewActivity"
+            android:name=".java.LivePreviewActivity"
             android:exported="false"
             android:theme="@style/AppTheme">
         </activity>

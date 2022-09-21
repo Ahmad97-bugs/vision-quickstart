@@ -18,6 +18,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/309b3905bd3fefcb911085c66a19b70e/transformed/jetified-core-1.4.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/31a0fe340d73efb80499f490e24fbefd/transformed/rules-1.4.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/87958c0a0cd62f747a9f18e66e847331/transformed/runner-1.4.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/b6fad89d36d6050d9e834e4b404ef39b/transformed/multidex-instrumentation-2.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/901a77d4e53c07dbad1aafd2d4d1d355/transformed/jetified-object-detection-17.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/96c9944985cc5143ec14a70f16aa5399/transformed/lifecycle-extensions-2.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e93aade2d3d238cef4f77a73d8c984e8/transformed/constraintlayout-2.0.4-api.jar</arg>
@@ -101,12 +102,12 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/4a8ff2c1fe854be3641fd2f00049d739/transformed/jetified-jsr305-3.0.2.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/40d834b179f874f1ca938c79327ddead/transformed/jetified-junit-4.12.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/c4f29d6baca1c581119846b05d881b50/transformed/jetified-hamcrest-core-1.3.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/89450e8bdc22127e310458d2e4e8cefb/transformed/multidex-2.0.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/8686dd611f0fa1cdbe48068a250a6efc/transformed/jetified-kotlin-android-extensions-runtime-1.5.31.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/a06300080959d37bf71c786a18edb3a0/transformed/jetified-kotlinx-coroutines-android-1.5.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/f3d971b3ccf4eaf821ae7c10ffbe4ca3/transformed/jetified-kotlinx-coroutines-core-jvm-1.5.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/abbccd774ba2bf7456adffcf332846f4/transformed/jetified-kotlin-stdlib-jdk8-1.5.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/189756f87233b7e6e1b3db9dba45e882/transformed/jetified-kotlin-stdlib-jdk7-1.5.31.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/89450e8bdc22127e310458d2e4e8cefb/transformed/multidex-2.0.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/1f9860ae9c42099a1570a02ceb94b429/transformed/jetified-gson-2.8.6.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e2cf9df2b00dd77b9bcfd5355b211665/transformed/jetified-image-1.0.0-beta1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/52c6bb7e34c4780e36f2a83296962719/transformed/jetified-kotlin-stdlib-1.5.31.jar</arg>
@@ -228,6 +229,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.services:storage:1.4.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:rules:1.4.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.ext:junit:1.1.3@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.multidex:multidex-instrumentation:2.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.multidex:multidex:2.0.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.mlkit:barcode-scanning:17.0.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.android.gms:play-services-basement:18.1.0@aar" level="project" />

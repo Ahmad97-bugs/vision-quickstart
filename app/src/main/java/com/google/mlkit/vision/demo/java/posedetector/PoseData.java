@@ -38,4 +38,5 @@ public class PoseData {
     public void setInstanceCounter(int instanceCounter) {
         this.instanceCounter = instanceCounter;
     }
+
 }
