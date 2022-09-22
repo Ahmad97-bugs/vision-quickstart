@@ -3,9 +3,10 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9d5af28b1d4208a6796fef9bdb12fee6/transformed/jetified-pose-detection-common-18.0.0-beta2/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c8fba1e4f18ed059ca059194854971f2/transformed/jetified-pose-detection-common-18.0.0-beta2/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/3db0dd0efdb0cc943137e0226dd422ae/transformed/jetified-pose-detection-common-18.0.0-beta2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3db0dd0efdb0cc943137e0226dd422ae/transformed/jetified-pose-detection-common-18.0.0-beta2/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3db0dd0efdb0cc943137e0226dd422ae/transformed/jetified-pose-detection-common-18.0.0-beta2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2db5b9ba1e53da6adaf56a81f834a9c6/transformed/jetified-pose-detection-common-18.0.0-beta2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2db5b9ba1e53da6adaf56a81f834a9c6/transformed/jetified-pose-detection-common-18.0.0-beta2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2db5b9ba1e53da6adaf56a81f834a9c6/transformed/jetified-pose-detection-common-18.0.0-beta2/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.mlkit/pose-detection-common/18.0.0-beta2/43e97253f808071ca961cf688eb97f3e14b95278/pose-detection-common-18.0.0-beta2-javadoc.jar!/" />

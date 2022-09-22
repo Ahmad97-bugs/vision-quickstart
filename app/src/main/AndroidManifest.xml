@@ -31,9 +31,6 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat">
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".java.GUI.MainActivity"
             android:exported="false" />
 

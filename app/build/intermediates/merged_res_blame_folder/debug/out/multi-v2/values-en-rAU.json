@@ -4,7 +4,7 @@
             "outputFile": "com.google.mlkit.vision.demo.app-mergeDebugResources-24:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ahmad.khateeb\\.gradle\\caches\\transforms-3\\dc6ba7c6ba4ceaaccaeb85326f88fba9\\transformed\\appcompat-1.2.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "C:\\Users\\ahmad.khateeb\\.gradle\\caches\\transforms-3\\dfb3b472be1d627fb7b6f3e511ad10be\\transformed\\appcompat-1.2.0\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ahmad.khateeb\\.gradle\\caches\\transforms-3\\a42ff8c180d3e4bf8c087ea132703b04\\transformed\\core-1.6.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "C:\\Users\\ahmad.khateeb\\.gradle\\caches\\transforms-3\\3205a2a3c8cacce615b8f7712aa98bae\\transformed\\core-1.6.0\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -43,9 +43,6 @@
         android:testOnly="true"
         android:theme="@style/Theme.AppCompat" >
         <activity
-            android:name="com.google.mlkit.vision.demo.MainActivity"
-            android:exported="false" />
-        <activity
             android:name="com.google.mlkit.vision.demo.java.GUI.MainActivity"
             android:exported="false" />
 
@@ -76,6 +73,27 @@
         <activity
             android:name="com.google.mlkit.vision.demo.preference.SettingsActivity"
             android:exported="false" />
+
+        <service
+            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+            android:directBootAware="true"
+            android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.vision.segmentation.internal.SegmentationRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.vision.face.internal.FaceRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.vision.pose.internal.PoseRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
         <!--
              Required for ML Kit Pose Detection GPU acceleration. Applications that target Android
              S+ require explicit declaration of any referenced vendor-provided libraries.
@@ -90,65 +108,25 @@
             android:name="libOpenCL-pixel.so"
             android:required="false" />
 
-        <service
-            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
-            android:directBootAware="true"
-            android:exported="false" >
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.pose.internal.PoseRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.objects.defaults.internal.DefaultObjectsRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.objects.custom.internal.CustomObjectsRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.label.defaults.internal.BundledLabelRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.label.custom.internal.CustomLabelRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.segmentation.internal.SegmentationRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.vkp.VkpRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.face.internal.FaceRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-        </service>
-        <service
-            android:name="com.google.mlkit.acceleration.internal.MlKitRemoteWorkerService"
-            android:exported="false"
-            android:process=":mlkit_acceleration_mini_benchmark" />
-        <service
-            android:name="androidx.work.multiprocess.RemoteWorkManagerService"
-            android:exported="false" />
-
         <provider
             android:name="com.google.mlkit.common.internal.MlKitInitProvider"
             android:authorities="com.google.mlkit.vision.demo.mlkitinitprovider"
             android:exported="false"
             android:initOrder="99" />
 
+        <service
+            android:name="com.google.mlkit.acceleration.internal.MlKitRemoteWorkerService"
+            android:exported="false"
+            android:process=":mlkit_acceleration_mini_benchmark" />
+
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <service
+            android:name="androidx.work.multiprocess.RemoteWorkManagerService"
+            android:exported="false" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
@@ -272,12 +250,6 @@
             android:name="androidx.room.MultiInstanceInvalidationService"
             android:directBootAware="true"
             android:exported="false" />
-
-        <provider
-            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-            android:authorities="com.google.mlkit.vision.demo.lifecycle-process"
-            android:exported="false"
-            android:multiprocess="true" />
     </application>
 
 </manifest>
