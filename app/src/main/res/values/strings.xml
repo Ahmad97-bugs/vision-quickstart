@@ -152,4 +152,9 @@
     <string name="pref_title_segmentation_raw_size_mask" translatable="false">Enable raw size mask</string>
     <string name="pref_key_segmentation_raw_size_mask" translatable="false">srsm</string>
 
+
+    <!--personal-->
+    <string name="register">Register</string>
+    <string name="Login">Login</string>
+
 </resources>

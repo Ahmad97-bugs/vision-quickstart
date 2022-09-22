@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.google.mlkit.vision.demo.app-mergeDebugResources-24:/values-or/values-or.xml",
+            "outputFile": "com.google.mlkit.vision.demo.app-mergeDebugResources-26:/values-or/values-or.xml",
             "map": [
                 {
                     "source": "C:\\Users\\ahmad.khateeb\\.gradle\\caches\\transforms-3\\3cb7c3bf037cc1b0127e2d394a34b9a4\\transformed\\jetified-play-services-basement-18.0.0\\res\\values-or\\values.xml",
