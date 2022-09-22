@@ -2537,6 +2537,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string custom_object_detection
+string default_web_client_id
 string desc_camera_source_activity
 string desc_camerax_live_preview_activity
 string desc_cameraxsource_demo_activity
@@ -2546,6 +2547,12 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string firebase_database_url
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
@@ -2709,6 +2716,7 @@ string pref_title_segmentation_raw_size_mask
 string pref_title_show_language_tag
 string pref_title_show_text_confidence
 string pref_toast_invalid_min_face_size
+string project_id
 string register
 string search_menu_title
 string select_image
