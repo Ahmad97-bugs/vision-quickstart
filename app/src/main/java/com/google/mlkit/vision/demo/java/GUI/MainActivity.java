@@ -10,7 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private boolean flag = false;
-    private Button registerBtn;
+//    private Button registerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
