@@ -1781,8 +1781,10 @@ drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable custom_button
 drawable custom_email_icon
+drawable custom_id_icon
 drawable custom_input
 drawable custom_lock_icon
+drawable custom_user_icon
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
@@ -1793,6 +1795,8 @@ drawable googleg_standard_color_18
 drawable ic_clock_black_24dp
 drawable ic_email
 drawable ic_email_focused
+drawable ic_id
+drawable ic_id_focused
 drawable ic_keyboard_black_24dp
 drawable ic_kindergarten
 drawable ic_mtrl_checked_circle
@@ -1801,6 +1805,8 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_outline_lock_24
 drawable ic_outline_lock_24_focused
+drawable ic_person
+drawable ic_person_focused
 drawable ic_settings_white_24dp
 drawable ic_switch_camera_white_48dp
 drawable ic_switch_camera_white_48dp_inset
@@ -2080,6 +2086,7 @@ id linear
 id listMode
 id list_item
 id loginBtn
+id mailTxt
 id masked
 id material_clock_display
 id material_clock_face
@@ -2157,6 +2164,7 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id passTxt
 id password_toggle
 id path
 id pathRelative
@@ -2182,6 +2190,7 @@ id right_side
 id root
 id rounded
 id row_index_key
+id saveBtn
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -2264,11 +2273,17 @@ id test_radiobutton_android_button_tint
 id test_radiobutton_app_button_tint
 id text
 id text2
+id textDate
 id textEnd
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView10
+id textView12
+id textView13
+id textView14
+id textView9
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2300,6 +2315,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id userTxt
 id vertical
 id video
 id view_offset_helper
@@ -2383,6 +2399,7 @@ layout activity_chooser
 layout activity_main
 layout activity_settings
 layout activity_still_image
+layout activity_user_register
 layout activity_vision_camerax_live_preview
 layout activity_vision_cameraxsource_demo
 layout activity_vision_entry_choice
