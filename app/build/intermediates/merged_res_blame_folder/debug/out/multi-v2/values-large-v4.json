@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.google.mlkit.vision.demo.app-mergeDebugResources-18:/values-large-v4/values-large-v4.xml",
+            "outputFile": "com.google.mlkit.vision.demo.app-mergeDebugResources-24:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ahmad.khateeb\\.gradle\\caches\\transforms-3\\f2459f9ca474f04b4db4a516e0f4405e\\transformed\\appcompat-1.2.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\ahmad.khateeb\\.gradle\\caches\\transforms-3\\45828fa8aa0b9348bcbaf27287a12366\\transformed\\material-1.4.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,177",
+                        "endColumns": "121,133",
+                        "endOffsets": "172,306"
+                    },
+                    "to": {
+                        "startLines": "11,12",
+                        "startColumns": "4,4",
+                        "startOffsets": "752,874",
+                        "endColumns": "121,133",
+                        "endOffsets": "869,1003"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ahmad.khateeb\\.gradle\\caches\\transforms-3\\dc6ba7c6ba4ceaaccaeb85326f88fba9\\transformed\\appcompat-1.2.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

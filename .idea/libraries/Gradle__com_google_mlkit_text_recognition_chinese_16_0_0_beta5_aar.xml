@@ -3,8 +3,9 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9143968ab8e37dde08a68817d3a1f00f/transformed/jetified-text-recognition-chinese-16.0.0-beta5/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c9edc34dac28e778bc60eeb726ef3aa1/transformed/jetified-text-recognition-chinese-16.0.0-beta5/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/c9edc34dac28e778bc60eeb726ef3aa1/transformed/jetified-text-recognition-chinese-16.0.0-beta5/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/c9edc34dac28e778bc60eeb726ef3aa1/transformed/jetified-text-recognition-chinese-16.0.0-beta5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d4195b0a0fc6c2586c92e64c618ce365/transformed/jetified-text-recognition-chinese-16.0.0-beta5/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d4195b0a0fc6c2586c92e64c618ce365/transformed/jetified-text-recognition-chinese-16.0.0-beta5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d4195b0a0fc6c2586c92e64c618ce365/transformed/jetified-text-recognition-chinese-16.0.0-beta5/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.mlkit/text-recognition-chinese/16.0.0-beta5/264546e0e7a2ecc80e31846fcef3c52642c37bd1/text-recognition-chinese-16.0.0-beta5-javadoc.jar!/" />
