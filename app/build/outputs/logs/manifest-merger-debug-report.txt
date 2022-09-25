@@ -461,12 +461,12 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\ahmad.khateeb\.
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:32:9-47
 	android:name
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:29:9-61
-activity#com.google.mlkit.vision.demo.UserRegister
+activity#com.google.mlkit.vision.demo.java.GUI.UserRegister
 ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:33:9-35:40
 	android:exported
 		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:35:13-37
 	android:name
-		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:34:13-41
+		ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:34:13-50
 activity#com.google.mlkit.vision.demo.java.GUI.MainActivity
 ADDED from C:\vision-quickstart\app\src\main\AndroidManifest.xml:36:9-44:20
 	android:exported

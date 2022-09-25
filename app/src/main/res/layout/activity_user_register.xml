@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".java.GUI.UserRegister">
+    tools:context=".java.IS.UserRegister">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,17 +13,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="753dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="399dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="807dp"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -54,7 +54,6 @@
                             android:layout_marginBottom="16dp"
                             android:background="@drawable/custom_input"
                             android:drawableStart="@drawable/custom_user_icon"
-                            android:drawableLeft="@drawable/custom_email_icon"
                             android:drawablePadding="12dp"
                             android:ems="10"
                             android:hint="User Name"
@@ -168,7 +167,6 @@
                             android:layout_marginRight="16dp"
                             android:background="@drawable/custom_input"
                             android:drawableStart="@drawable/custom_id_icon"
-                            android:drawableLeft="@drawable/custom_lock_icon"
                             android:drawablePadding="12dp"
                             android:ems="10"
                             android:hint="Date"

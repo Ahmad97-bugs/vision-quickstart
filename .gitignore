@@ -20,5 +20,6 @@ captures
 .externalNativeBuild
 .cxx
 
-.gradle/7.3.3/executionHistory/executionHistory.lock
+.gradle\
 *.bin
+*.apk

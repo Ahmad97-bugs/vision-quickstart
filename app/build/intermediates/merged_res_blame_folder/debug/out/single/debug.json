@@ -8,10 +8,6 @@
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable\\custom_button.xml"
     },
     {
-        "merged": "com.google.mlkit.vision.demo.app-merged_res-29:/drawable_ic_id.xml.flat",
-        "source": "com.google.mlkit.vision.demo.app-main-31:/drawable/ic_id.xml"
-    },
-    {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\mipmap-mdpi\\ic_launcher.png"
     },
@@ -20,12 +16,16 @@
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable\\list_item_background.xml"
     },
     {
-        "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\drawable-xxxhdpi_ic_switch_camera_white_48dp_inset.png.flat",
-        "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable-xxxhdpi\\ic_switch_camera_white_48dp_inset.png"
+        "merged": "com.google.mlkit.vision.demo.app-merged_res-29:/layout_activity_user_register.xml.flat",
+        "source": "com.google.mlkit.vision.demo.app-main-31:/layout/activity_user_register.xml"
     },
     {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\layout_activity_vision_cameraxsource_demo.xml.flat",
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\layout\\activity_vision_cameraxsource_demo.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\drawable-xxxhdpi_ic_switch_camera_white_48dp_inset.png.flat",
+        "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable-xxxhdpi\\ic_switch_camera_white_48dp_inset.png"
     },
     {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\layout-land_activity_vision_cameraxsource_demo.xml.flat",
@@ -42,10 +42,6 @@
     {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\layout_activity_chooser.xml.flat",
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\layout\\activity_chooser.xml"
-    },
-    {
-        "merged": "com.google.mlkit.vision.demo.app-merged_res-29:/drawable_ic_person_focused.xml.flat",
-        "source": "com.google.mlkit.vision.demo.app-main-31:/drawable/ic_person_focused.xml"
     },
     {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher.png.flat",
@@ -104,6 +100,10 @@
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable\\custom_input.xml"
     },
     {
+        "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\drawable_ic_person_focused.xml.flat",
+        "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable\\ic_person_focused.xml"
+    },
+    {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\layout\\activity_main.xml"
     },
@@ -120,8 +120,8 @@
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\menu\\camera_button_menu.xml"
     },
     {
-        "merged": "com.google.mlkit.vision.demo.app-merged_res-29:/drawable_ic_id_focused.xml.flat",
-        "source": "com.google.mlkit.vision.demo.app-main-31:/drawable/ic_id_focused.xml"
+        "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\drawable_ic_id_focused.xml.flat",
+        "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable\\ic_id_focused.xml"
     },
     {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\drawable-mdpi_ic_switch_camera_white_48dp.xml.flat",
@@ -168,6 +168,10 @@
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable\\ic_outline_lock_24.xml"
     },
     {
+        "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\drawable_ic_id.xml.flat",
+        "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable\\ic_id.xml"
+    },
+    {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\layout_activity_vision_entry_choice.xml.flat",
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\layout\\activity_vision_entry_choice.xml"
     },
@@ -182,6 +186,10 @@
     {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\layout_settings_style.xml.flat",
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\layout\\settings_style.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\drawable_ic_person.xml.flat",
+        "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable\\ic_person.xml"
     },
     {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\drawable-xhdpi_ic_switch_camera_white_48dp.xml.flat",
@@ -202,10 +210,6 @@
     {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\drawable_ic_outline_lock_24_focused.xml.flat",
         "source": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-main-31:\\drawable\\ic_outline_lock_24_focused.xml"
-    },
-    {
-        "merged": "com.google.mlkit.vision.demo.app-merged_res-29:/drawable_ic_person.xml.flat",
-        "source": "com.google.mlkit.vision.demo.app-main-31:/drawable/ic_person.xml"
     },
     {
         "merged": "C:\\Users\\ahmad.khateeb\\.gradle\\daemon\\7.3.3\\com.google.mlkit.vision.demo.app-merged_res-29:\\layout_spinner_style.xml.flat",
