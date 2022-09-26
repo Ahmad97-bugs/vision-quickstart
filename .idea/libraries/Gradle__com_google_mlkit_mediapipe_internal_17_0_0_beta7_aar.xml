@@ -4,9 +4,10 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2c5af5fe994497629c87571ba05f3cc1/transformed/jetified-mediapipe-internal-17.0.0-beta7/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ac2dde108b66809c705e56ab0bc51396/transformed/jetified-mediapipe-internal-17.0.0-beta7/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/84036f7c2467e1fc75b4fb46520965aa/transformed/jetified-mediapipe-internal-17.0.0-beta7/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5a2a603c805310b4bc51a4067309d285/transformed/jetified-mediapipe-internal-17.0.0-beta7/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5a2a603c805310b4bc51a4067309d285/transformed/jetified-mediapipe-internal-17.0.0-beta7/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5a2a603c805310b4bc51a4067309d285/transformed/jetified-mediapipe-internal-17.0.0-beta7/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e4df2b98fb10538ca6016b137d0ddd97/transformed/jetified-mediapipe-internal-17.0.0-beta7/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e4df2b98fb10538ca6016b137d0ddd97/transformed/jetified-mediapipe-internal-17.0.0-beta7/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e4df2b98fb10538ca6016b137d0ddd97/transformed/jetified-mediapipe-internal-17.0.0-beta7/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.mlkit/mediapipe-internal/17.0.0-beta7/ace98f39b262c59be4be4d52b871d1ba5dfff723/mediapipe-internal-17.0.0-beta7-javadoc.jar!/" />

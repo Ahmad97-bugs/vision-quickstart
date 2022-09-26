@@ -32,8 +32,23 @@ public class Firebase {
     }
 
     public void createUser(User u) {
-        db.collection("parents")
+        db.collection("users")
                 .document(u.getEmail()).set(u)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                    }
+                });
+    }
+
+    public void createJump(Jump j) {
+        db.collection("jumps")
+                .document(Integer.toString(j.getUserID())).set(j)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -120,5 +135,6 @@ public class Firebase {
         }
         return false;
     }
+
 
 }

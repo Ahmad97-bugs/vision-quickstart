@@ -34,25 +34,39 @@ public class DatabaseManager {
 
     }
 
-    public void openDataBase(Context context) {
+    public void openDatabase(Context context) {
         this.context = context;
         if (context != null) {
             db = new Database(context);
+//            db.deleteAllUsers();
             db.open();
         }
     }
 
-    public void closeDataBase() {
+    public void closeDatabase() {
         if (db != null) {
             db.close();
         }
     }
 
     public boolean createUser(User u) {
-        u.setId(db.getAllUsers().size() + 1);
+        if(db.getAllUsers() != null)
+            u.setId(db.getAllUsers().size() + 1);
+        else{
+            u.setId(1);
+        }
         if (db != null) {
             db.createUser(u);
             Firebase.getInstance().createUser(u);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean createJump(Jump j) {
+        if (db != null) {
+            db.createJump(j);
+            Firebase.getInstance().createJump(j);
             return true;
         }
         return false;
@@ -70,6 +84,16 @@ public class DatabaseManager {
         List<User> result = new ArrayList<User>();
         if (db != null) {
             result = db.getAllUsers();
+        }
+        return result;
+    }
+
+    public List<Jump> getAllJumps(int id) {
+        List<Jump> result = new ArrayList<Jump>();
+        if (db != null) {
+            result = db.readJumps(id);
+            System.out.println("nooo");
+
         }
         return result;
     }

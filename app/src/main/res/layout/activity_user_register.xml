@@ -56,8 +56,10 @@
                             android:drawableStart="@drawable/custom_user_icon"
                             android:drawablePadding="12dp"
                             android:ems="10"
-                            android:hint="User Name"
+                            android:hint="Full name"
                             android:inputType="textPersonName"
+                            android:textColorHint="@color/mainText"
+                            android:textColor="@color/mainText"
                             android:paddingStart="12dp"
                             android:paddingEnd="12dp" />
 
@@ -96,6 +98,8 @@
                             android:ems="10"
                             android:hint="Email"
                             android:inputType="textPersonName"
+                            android:textColorHint="@color/mainText"
+                            android:textColor="@color/mainText"
                             android:paddingStart="12dp"
                             android:paddingEnd="12dp" />
                     </LinearLayout>
@@ -134,6 +138,8 @@
                             android:drawablePadding="12dp"
                             android:ems="10"
                             android:hint="Password"
+                            android:textColorHint="@color/mainText"
+                            android:textColor="@color/mainText"
                             android:inputType="textPersonName"
                             android:paddingStart="12dp"
                             android:paddingEnd="12dp" />
@@ -171,6 +177,8 @@
                             android:ems="10"
                             android:hint="Date"
                             android:inputType="date"
+                            android:textColorHint="@color/mainText"
+                            android:textColor="@color/mainText"
                             android:paddingStart="12dp"
                             android:paddingEnd="12dp" />
 

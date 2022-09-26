@@ -1,14 +1,11 @@
 package com.google.mlkit.vision.demo.java.IS;
 
-import java.util.Date;
-import java.util.Map;
 
 public class User {
     private int id;
     private String name;
     private String email;
     private String password;
-    private Map<Date, Float> date;
 
     public User(int id, String name, String email, String password) {
         this.id = id;
@@ -60,7 +57,6 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", date=" + date +
                 '}';
     }
 }

@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,23 +14,29 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.mlkit.vision.demo.R;
+import com.google.mlkit.vision.demo.java.ChooserActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class UserRegister extends AppCompatActivity {
     private TextView name;
     private TextView email;
     private TextView password;
     private TextView date;
-//    private List<Parent> parents;
+    private List<User> users;
     private FirebaseAuth mAuth;
     private boolean flag = true;
-    private Date dateF;
+    private String REmail;
+    private String RPassword;
+    private String RName;
+    Context ctx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,54 +45,63 @@ public class UserRegister extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setTitle("Register");
         ab.setDisplayHomeAsUpEnabled(true);
-
+        ctx = this;
         mAuth = FirebaseAuth.getInstance();
-//        DataBaseManager.getInstance().openDataBase(this);
-//        parents = DataBaseManager.getInstance().getAllParents();
+        DatabaseManager.getInstance().openDatabase(this);
+        users = DatabaseManager.getInstance().getAllUsers();
         name = findViewById(R.id.userTxt);
         email = findViewById(R.id.mailTxt);
         password = findViewById(R.id.passTxt);
         date = findViewById(R.id.textDate);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Button save = findViewById(R.id.saveBtn);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                for (Parent p : DataBaseManager.getInstance().getAllParents()) {
-//                    if (p.getEmail().equals(email.getText().toString())) {
-                        flag = false;
-                        Toast.makeText(UserRegister.this, "Email already in use", Toast.LENGTH_LONG).show();
-//                        break;
-//                    }
-//                }
-                if (flag) {
-                    dateF = null;
-                    try {
-                        dateF = formatter.parse(date.getText().toString());
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(UserRegister.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-//                                Parent parent = new Parent(name.getText().toString(), email.getText().toString(), password.getText().toString(), dateF);
-//                                DataBaseManager.getInstance().createParent(parent);
-//                                parents = DataBaseManager.getInstance().getAllParents();
-//                                Snackbar snackbar = Snackbar
-//                                        .make(v, "Parent Added", Snackbar.LENGTH_LONG);
-//                                snackbar.show();
-//                                Intent intent = new Intent(UserRegister.this, ChildrenRegister.class);
-//                                intent.putExtra("userID", parents.get(parents.size()-1).getId());
-//                                startActivity(intent);
-                            } else {
-                                Toast.makeText(UserRegister.this, task.getException().toString(), Toast.LENGTH_LONG);
+                REmail = email.getText().toString();
+                RPassword = password.getText().toString();
+                RName = name.getText().toString();
+                if (!RName.equals("")) {
+                    if (!REmail.equals("")) {
+                        if (!RPassword.equals("")) {
+                            for (User u : DatabaseManager.getInstance().getAllUsers()) {
+                                if (u.getEmail().equals(email.getText().toString())) {
+                                    flag = false;
+                                    Toast.makeText(UserRegister.this, "Email already in use", Toast.LENGTH_LONG).show();
+                                    break;
+                                }
                             }
+                            if (flag) {
+                                if (REmail != null && RPassword != null) {
+                                    mAuth.createUserWithEmailAndPassword(REmail, RPassword).addOnCompleteListener(UserRegister.this, new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                            if (task.isSuccessful()) {
+                                                User user = new User(users.size(), name.getText().toString(), email.getText().toString(), password.getText().toString());
+                                                DatabaseManager.getInstance().createUser(user);
+                                                users = DatabaseManager.getInstance().getAllUsers();
+                                                Snackbar snackbar = Snackbar
+                                                        .make(v, "User Registered", Snackbar.LENGTH_LONG);
+                                                snackbar.show();
+                                                Intent intent = new Intent(UserRegister.this, ChooserActivity.class);
+                                                intent.putExtra("userID", users.get(users.size() - 1).getId());
+                                                startActivity(intent);
+                                            } else {
+                                                Toast.makeText(UserRegister.this, task.getException().toString(), Toast.LENGTH_LONG);
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        } else {
+                            Toast.makeText(ctx, "Password field is empty", Toast.LENGTH_LONG).show();
                         }
-                    });
+                    } else {
+                        Toast.makeText(ctx, "E-mail field is empty", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(ctx, "Name field is empty", Toast.LENGTH_LONG).show();
                 }
             }
         });
-
     }
 }
