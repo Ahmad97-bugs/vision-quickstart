@@ -20,7 +20,8 @@ captures
 .externalNativeBuild
 .cxx
 
-.gradle\
+
+.gradle
 *.bin
 *.apk
-.gradle/7.3.3/checksums/checksums.lock
+*.lock
