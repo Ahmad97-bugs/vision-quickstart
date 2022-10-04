@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.mlkit.vision.demo.R;
 import com.google.mlkit.vision.demo.java.ChooserActivity;
 
@@ -30,9 +31,7 @@ public class UserRegister extends AppCompatActivity {
     private TextView email;
     private TextView password;
     private TextView date;
-    private List<User> users;
     private FirebaseAuth mAuth;
-    private boolean flag = true;
     private String REmail;
     private String RPassword;
     private String RName;
@@ -47,8 +46,6 @@ public class UserRegister extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         ctx = this;
         mAuth = FirebaseAuth.getInstance();
-        DatabaseManager.getInstance().openDatabase(this);
-        users = DatabaseManager.getInstance().getAllUsers();
         name = findViewById(R.id.userTxt);
         email = findViewById(R.id.mailTxt);
         password = findViewById(R.id.passTxt);
@@ -63,35 +60,35 @@ public class UserRegister extends AppCompatActivity {
                 if (!RName.equals("")) {
                     if (!REmail.equals("")) {
                         if (!RPassword.equals("")) {
-                            for (User u : DatabaseManager.getInstance().getAllUsers()) {
-                                if (u.getEmail().equals(email.getText().toString())) {
-                                    flag = false;
-                                    Toast.makeText(UserRegister.this, "Email already in use", Toast.LENGTH_LONG).show();
-                                    break;
-                                }
-                            }
-                            if (flag) {
-                                if (REmail != null && RPassword != null) {
-                                    mAuth.createUserWithEmailAndPassword(REmail, RPassword).addOnCompleteListener(UserRegister.this, new OnCompleteListener<AuthResult>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<AuthResult> task) {
-                                            if (task.isSuccessful()) {
-                                                User user = new User(users.size(), name.getText().toString(), email.getText().toString(), password.getText().toString());
-                                                DatabaseManager.getInstance().createUser(user);
-                                                users = DatabaseManager.getInstance().getAllUsers();
-                                                Snackbar snackbar = Snackbar
-                                                        .make(v, "User Registered", Snackbar.LENGTH_LONG);
-                                                snackbar.show();
-                                                Intent intent = new Intent(UserRegister.this, ChooserActivity.class);
-                                                intent.putExtra("userID", users.get(users.size() - 1).getId());
-                                                startActivity(intent);
-                                            } else {
-                                                Toast.makeText(UserRegister.this, task.getException().toString(), Toast.LENGTH_LONG);
+                                mAuth.fetchSignInMethodsForEmail(REmail).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                                        boolean check = !task.getResult().getSignInMethods().isEmpty();
+                                        if(!check){
+                                            if (REmail != null && RPassword != null) {
+                                                mAuth.createUserWithEmailAndPassword(REmail, RPassword).addOnCompleteListener(UserRegister.this, new OnCompleteListener<AuthResult>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                                        if (task.isSuccessful()) {
+                                                            User user = new User(mAuth.getUid(), name.getText().toString(), email.getText().toString(), password.getText().toString());
+                                                            DatabaseManager.getInstance().createUser(user);
+                                                            Snackbar snackbar = Snackbar
+                                                                    .make(v, "User Registered", Snackbar.LENGTH_LONG);
+                                                            snackbar.show();
+                                                            Intent intent = new Intent(UserRegister.this, ChooserActivity.class);
+                                                            intent.putExtra("authID", mAuth.getUid());
+                                                            startActivity(intent);
+                                                        } else {
+                                                            Toast.makeText(UserRegister.this, task.getException().toString(), Toast.LENGTH_LONG);
+                                                        }
+                                                    }
+                                                });
                                             }
+                                        } else{
+                                            Toast.makeText(UserRegister.this, "Email already in use", Toast.LENGTH_LONG).show();
                                         }
-                                    });
-                                }
-                            }
+                                    }
+                                });
                         } else {
                             Toast.makeText(ctx, "Password field is empty", Toast.LENGTH_LONG).show();
                         }

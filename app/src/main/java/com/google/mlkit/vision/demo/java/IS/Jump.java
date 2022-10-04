@@ -1,27 +1,32 @@
 package com.google.mlkit.vision.demo.java.IS;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Jump {
-    private int userID;
+    private String userID;
     private float Height;
     private Long date;
 
-    public Jump(int userID, float height, Long date) {
+    public Jump(String userID, float height, Long date) {
         this.userID = userID;
         Height = height;
         this.date = date;
     }
 
-    public Jump() {
+    public Jump(){
 
     }
 
-    public int getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 

@@ -31,52 +31,30 @@ public class MainActivity extends AppCompatActivity {
         Button loginBtn = this.<Button>findViewById(R.id.loginBtn);
         EditText editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         EditText editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        // open DB
-        DatabaseManager.getInstance().openDatabase(this);
-        editTextEmail.setText("admin");
-        editTextPassword.setText("admin");
+        editTextEmail.setText("ahmad@mail.com");
+        editTextPassword.setText("admin123");
         loginBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
-                if ((email.equals("admin")) && (password.equals("admin"))) {
 
-//                    for(int i = 0; i < 10; i++){
-//                        Jump j = new Jump(0, i, System.currentTimeMillis());
-//                        DatabaseManager.getInstance().createJump(j);
-//                    }
-//                    User user = new User(9999, "admin", "admin@admin.com", "admin");
-//                    DatabaseManager.getInstance().createUser(user);
-                    for(Jump j : DatabaseManager.getInstance().getAllJumps(1))
-                        System.out.println(j);
-                    Toast.makeText(getApplicationContext(), "Hello Admin", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(MainActivity.this, ChooserActivity.class);
-                    startActivity(intent);
-                } else {
-                    // validate user using firebase
-                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                updateUI(user);
-                                Toast.makeText(MainActivity.this, "Hello, "+user.getEmail(),
-                                        Toast.LENGTH_SHORT).show();
-                                flag=true;
-                                Toast.makeText(getApplicationContext(), "Hello "+ user.getDisplayName(), Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(MainActivity.this, ChooserActivity.class);
-                                startActivity(intent);
-                            } else {
-                                Toast.makeText(MainActivity.this, "Sorry, your password was incorrect.",
-                                        Toast.LENGTH_SHORT).show();
-                            }
+                // validate user using firebase
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            DatabaseManager.getInstance().initJumps(user.getUid());
+                            Toast.makeText(MainActivity.this, "Hello, " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, ChooserActivity.class);
+                            intent.putExtra("authID", mAuth.getUid());
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(MainActivity.this, "Sorry, your password was incorrect.", Toast.LENGTH_SHORT).show();
                         }
-                    });
-                    if(flag)
-                        Toast.makeText(getApplicationContext(), "Please check the email and password again", Toast.LENGTH_LONG).show();
-                }
+                    }
+                });
             }
-
         });
 
         registerBtn = findViewById(R.id.registerBtn);
@@ -89,18 +67,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void updateUI(FirebaseUser user){
-        if(user != null){
-//            DataBaseManager.getInstance().openDataBase(this);
-//            Intent intent = new Intent(this, MainPage.class);
-//            startActivity(intent);
-            finish();
-        }
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
-        DatabaseManager.getInstance().closeDatabase();
     }
 }

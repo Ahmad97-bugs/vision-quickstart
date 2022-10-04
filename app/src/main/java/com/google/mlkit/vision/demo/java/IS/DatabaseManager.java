@@ -5,11 +5,11 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DatabaseManager {
     private static DatabaseManager instance = null;
     private Context context = null;
-    private Database db = null;
-    private User selectedUser = null;
+    private List<Jump> jumps = new ArrayList<>();
 
     public static DatabaseManager getInstance() {
         if (instance == null) {
@@ -34,101 +34,27 @@ public class DatabaseManager {
 
     }
 
-    public void openDatabase(Context context) {
-        this.context = context;
-        if (context != null) {
-            db = new Database(context);
-//            db.deleteAllUsers();
-            db.open();
-        }
-    }
-
-    public void closeDatabase() {
-        if (db != null) {
-            db.close();
-        }
-    }
-
     public boolean createUser(User u) {
-        if(db.getAllUsers() != null)
-            u.setId(db.getAllUsers().size() + 1);
-        else{
-            u.setId(1);
-        }
-        if (db != null) {
-            db.createUser(u);
-            Firebase.getInstance().createUser(u);
-            return true;
-        }
-        return false;
+        Firebase.getInstance().createUser(u);
+        return true;
     }
 
-    public boolean createJump(Jump j) {
-        if (db != null) {
-            db.createJump(j);
-            Firebase.getInstance().createJump(j);
-            return true;
-        }
-        return false;
+    public boolean createJump(Jump j, String userID) {
+        Firebase.getInstance().createJump(j, userID);
+        return true;
     }
 
-    public User readUser(int id) {
-        User result = null;
-        if (db != null) {
-            result = db.readUsers(id);
-        }
-        return result;
+    public void initJumps(String userID){
+        Firebase.getInstance().getAllJumps(userID);
     }
 
-    public List<User> getAllUsers() {
-        List<User> result = new ArrayList<User>();
-        if (db != null) {
-            result = db.getAllUsers();
-        }
-        return result;
+    public List<Jump> getJumps(String userID) {
+        if(jumps.isEmpty())
+            initJumps(userID);
+        return jumps;
     }
 
-    public List<Jump> getAllJumps(int id) {
-        List<Jump> result = new ArrayList<Jump>();
-        if (db != null) {
-            result = db.readJumps(id);
-            System.out.println("nooo");
-
-        }
-        return result;
+    public void setJumps(List<Jump> jumps) {
+        this.jumps = jumps;
     }
-
-    public boolean updateUser(User u) {
-        if (db != null && u != null) {
-            db.updateUser(u);
-        }
-        if (Firebase.getInstance().setUser(u))
-            return true;
-        return false;
-    }
-
-    public boolean deleteUser(User u) {
-        if (db != null) {
-            db.deleteUser(u);
-        }
-        if (Firebase.getInstance().deleteUser(u))
-            return true;
-        return false;
-    }
-
-    public void removeAllUsers() {
-        if (db != null) {
-            db.deleteAllUsers();
-        }
-    }
-
-    public User getSelectedUser() {
-        return selectedUser;
-    }
-
-    public void setSelectedUser(User selectedUser) {
-        this.selectedUser = selectedUser;
-    }
-
-
 }

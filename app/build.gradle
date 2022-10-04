@@ -113,6 +113,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
+
+    //graph
+//    implementation 'com.jjoe64:graphview:4.2.2'
 }
 
 configurations {
