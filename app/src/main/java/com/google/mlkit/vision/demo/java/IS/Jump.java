@@ -1,25 +1,18 @@
 package com.google.mlkit.vision.demo.java.IS;
 
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Jump {
+    private String jumpID;
     private String userID;
     private float Height;
     private Long date;
 
-    public Jump(String userID, float height, Long date) {
+    public Jump(String jumpID, String userID, float height, Long date) {
+        this.jumpID = jumpID;
         this.userID = userID;
-        Height = height;
+        this.Height = height;
         this.date = date;
-    }
-
-    public Jump(){
-
     }
 
     public String getUserID() {
@@ -48,6 +41,14 @@ public class Jump {
 
     private Date castToDate(Long date){
         return new Date(date);
+    }
+
+    public String getJumpID(){
+        return jumpID;
+    }
+
+    public void setJumpID(String jumpID){
+        this.jumpID = jumpID;
     }
 
     @Override

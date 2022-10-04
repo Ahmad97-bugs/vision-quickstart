@@ -15,55 +15,55 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Firebase {
+public class Firebase{
     //    private Context context;
     private static Firebase instance = null;
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    public static Firebase getInstance() {
-        if (instance == null) {
+    public static Firebase getInstance(){
+        if(instance == null){
             instance = new Firebase();
         }
         return instance;
     }
 
-    public void createUser(User u) {
+    public void createUser(User u){
         db.collection("users")
                 .document(u.getEmail()).set(u)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                .addOnSuccessListener(new OnSuccessListener<Void>(){
                     @Override
-                    public void onSuccess(Void aVoid) {
+                    public void onSuccess(Void aVoid){
                     }
                 })
-                .addOnFailureListener(new OnFailureListener() {
+                .addOnFailureListener(new OnFailureListener(){
                     @Override
-                    public void onFailure(@NonNull Exception e) {
+                    public void onFailure(@NonNull Exception e){
                     }
                 });
     }
 
-    public void createJump(Jump j, String userID) {
+    public void createJump(Jump j, String userID){
         db.collection("jumps")
                 .document(userID).collection(String.valueOf(1)).document().set(j)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                .addOnSuccessListener(new OnSuccessListener<Void>(){
                     @Override
-                    public void onSuccess(Void aVoid) {
+                    public void onSuccess(Void aVoid){
                     }
                 })
-                .addOnFailureListener(new OnFailureListener() {
+                .addOnFailureListener(new OnFailureListener(){
                     @Override
-                    public void onFailure(@NonNull Exception e) {
+                    public void onFailure(@NonNull Exception e){
                     }
                 });
     }
 
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers(){
         List<User> userList = new ArrayList<>();
-        db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
+            public void onComplete(@NonNull Task<QuerySnapshot> task){
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot document : task.getResult()){
                         //return Array
                         Map<String, Object> user = document.getData();
                         String id = (String) user.get("id");
@@ -79,23 +79,42 @@ public class Firebase {
         return userList;
     }
 
-    public void getAllJumps(String userID) {
+    public void getAllJumps(String userID){
         List<Jump> jumpList = new ArrayList<>();
-        db.collection("jumps/" + userID + "/1").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("jumps/" + userID + "/1").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (DocumentSnapshot document : task.getResult()) {
+            public void onComplete(@NonNull Task<QuerySnapshot> task){
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot document : task.getResult()){
                         Map<String, Object> jump = document.getData();
-                        String id = (String) jump.get("userID");
+                        String jumpID = document.getId();
+                        String userid = (String) jump.get("userID");
                         Float height = ((Double) jump.get("height")).floatValue();
                         Long date = (Long) jump.get("date");
-                        Jump j = new Jump(id, height, date);
+                        Jump j = new Jump(jumpID, userid, height, date);
                         jumpList.add(j);
                     }
                 }
                 DatabaseManager.getInstance().setJumps(jumpList);
             }
         });
+    }
+
+    public void deleteJump(Jump j, String userID){
+        db.collection("jumps/" + userID + "/1")
+                .document(j.getJumpID())
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>(){
+                    @Override
+                    public void onSuccess(Void aVoid){
+                        DatabaseManager.getInstance().getJumps(userID);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener(){
+                    @Override
+                    public void onFailure(@NonNull Exception e){
+                    }
+                });
+
     }
 }

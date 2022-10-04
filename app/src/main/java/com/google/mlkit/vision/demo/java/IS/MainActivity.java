@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
-                            DatabaseManager.getInstance().initJumps(user.getUid());
+//                            DatabaseManager.getInstance().initJumps(user.getUid());
                             Toast.makeText(MainActivity.this, "Hello, " + user.getEmail(), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this, ChooserActivity.class);
                             intent.putExtra("authID", mAuth.getUid());
