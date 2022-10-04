@@ -5,30 +5,36 @@ import java.util.Date;
 public class Jump {
     private String jumpID;
     private String userID;
-    private float Height;
+    private float height;
     private Long date;
 
     public Jump(String jumpID, String userID, float height, Long date) {
         this.jumpID = jumpID;
         this.userID = userID;
-        this.Height = height;
+        this.height = height;
         this.date = date;
     }
 
-    public String getUserID() {
+    public Jump(String uid, double jumpPopup, long date){
+        this.userID = uid;
+        this.height = (float) jumpPopup;
+        this.date = date;
+    }
+
+    public String getUserID(){
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(String userID){
         this.userID = userID;
     }
 
     public float getHeight() {
-        return Height;
+        return height;
     }
 
     public void setHeight(float height) {
-        Height = height;
+        this.height = height;
     }
 
     public Long getDate() {
@@ -55,7 +61,7 @@ public class Jump {
     public String toString() {
         return "Jump{" +
                 "userID=" + userID +
-                ", Height=" + Height +
+                ", Height=" + height +
                 ", date=" + date +
                 '}';
     }

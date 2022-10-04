@@ -34,6 +34,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.mlkit.vision.demo.BuildConfig;
 import com.google.mlkit.vision.demo.R;
 import com.google.mlkit.vision.demo.java.IS.DatabaseManager;
@@ -48,6 +49,7 @@ public final class ChooserActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener{
     private static final String TAG = "ChooserActivity";
     private String userID;
+    private FirebaseAuth mAuth;
 
     @SuppressWarnings("NewApi") // CameraX is only available on API 21+
     private static final Class<?>[] CLASSES =
@@ -93,8 +95,9 @@ public final class ChooserActivity extends AppCompatActivity
 
         MyArrayAdapter adapter = new MyArrayAdapter(this, android.R.layout.simple_list_item_2, CLASSES);
         adapter.setDescriptionIds(DESCRIPTION_IDS);
-        userID = getIntent().getStringExtra("authID");
-        DatabaseManager.getInstance().getJumps(getIntent().getStringExtra("authID"));
+        mAuth = FirebaseAuth.getInstance();
+        userID = mAuth.getUid();
+        DatabaseManager.getInstance().getJumps(userID);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);

@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private boolean flag = false;
     private Button registerBtn;
 
     @Override
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
-//                            DatabaseManager.getInstance().initJumps(user.getUid());
                             Toast.makeText(MainActivity.this, "Hello, " + user.getEmail(), Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(MainActivity.this, ChooserActivity.class);
                             intent.putExtra("authID", mAuth.getUid());

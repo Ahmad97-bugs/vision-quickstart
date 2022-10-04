@@ -76,7 +76,6 @@ public class UserRegister extends AppCompatActivity {
                                                                     .make(v, "User Registered", Snackbar.LENGTH_LONG);
                                                             snackbar.show();
                                                             Intent intent = new Intent(UserRegister.this, ChooserActivity.class);
-                                                            intent.putExtra("authID", mAuth.getUid());
                                                             startActivity(intent);
                                                         } else {
                                                             Toast.makeText(UserRegister.this, task.getException().toString(), Toast.LENGTH_LONG);

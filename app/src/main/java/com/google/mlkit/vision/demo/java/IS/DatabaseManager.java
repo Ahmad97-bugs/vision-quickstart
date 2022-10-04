@@ -39,8 +39,8 @@ public class DatabaseManager{
         return true;
     }
 
-    public boolean createJump(Jump j, String userID){
-        Firebase.getInstance().createJump(j, userID);
+    public boolean createJump(Jump j){
+        Firebase.getInstance().createJump(j);
         return true;
     }
 

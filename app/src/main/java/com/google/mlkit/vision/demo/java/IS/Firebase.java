@@ -42,9 +42,9 @@ public class Firebase{
                 });
     }
 
-    public void createJump(Jump j, String userID){
+    public void createJump(Jump j){
         db.collection("jumps")
-                .document(userID).collection(String.valueOf(1)).document().set(j)
+                .document(j.getUserID()).collection(String.valueOf(1)).document().set(j)
                 .addOnSuccessListener(new OnSuccessListener<Void>(){
                     @Override
                     public void onSuccess(Void aVoid){
