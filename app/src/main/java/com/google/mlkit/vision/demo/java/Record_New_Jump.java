@@ -43,7 +43,6 @@ import com.google.mlkit.vision.demo.R;
 import com.google.mlkit.vision.demo.java.IS.DatabaseManager;
 import com.google.mlkit.vision.demo.java.IS.Firebase;
 import com.google.mlkit.vision.demo.java.IS.Jump;
-import com.google.mlkit.vision.demo.java.IS.UserRegister;
 import com.google.mlkit.vision.demo.java.posedetector.PoseDetectorProcessor;
 import com.google.mlkit.vision.demo.java.posedetector.classification.PoseClassifierProcessor;
 import com.google.mlkit.vision.demo.preference.PreferenceUtils;
@@ -56,7 +55,7 @@ import java.io.IOException;
  * Live preview demo for ML Kit APIs.
  */
 @KeepName
-public final class LivePreviewActivity extends AppCompatActivity
+public final class Record_New_Jump extends AppCompatActivity
         implements OnItemSelectedListener, CompoundButton.OnCheckedChangeListener{
     private static final String POSE_DETECTION = "Pose Detection";
 
@@ -98,12 +97,12 @@ public final class LivePreviewActivity extends AppCompatActivity
                     record.setText("Start Recording");
                     double jumpHeight = PoseClassifierProcessor.calculatedJumpHeight();
                     if(jumpHeight == (double) 0){
-                        Toast.makeText(LivePreviewActivity.this, "No jump was recorded", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Record_New_Jump.this, "No jump was recorded", Toast.LENGTH_LONG).show();
                     } else{
                         jumpPopup = (float) jumpHeight;
                         buildDialog();
                         dialog.show();
-                        Toast.makeText(LivePreviewActivity.this, "Jump height is: " + jumpHeight + "cm", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Record_New_Jump.this, "Jump height is: " + jumpHeight + "cm", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -246,7 +245,7 @@ public final class LivePreviewActivity extends AppCompatActivity
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.dialogue, null);
         TextView jumpText = view.findViewById(R.id.jumpText);
-        jumpText.setText("By clicking DELETE you'll permanently delete this jump history");
+        jumpText.setText("Do you want to add this jump record to your history?");
         builder.setView(view);
         builder.setTitle("Do you want to keep the jump of height "+ jumpPopup +"?").setPositiveButton("Yes", new DialogInterface.OnClickListener(){
             @Override
@@ -254,7 +253,7 @@ public final class LivePreviewActivity extends AppCompatActivity
                 Jump jump = new Jump(mAuth.getUid(), jumpPopup, System.currentTimeMillis());
                 Firebase.getInstance().createJump(jump);
                 DatabaseManager.getInstance().getJumps(mAuth.getUid()).add(jump);
-                startActivity(new Intent(LivePreviewActivity.this, ChooserActivity.class));
+                startActivity(new Intent(Record_New_Jump.this, ChooserActivity.class));
 
             }
         }).setNegativeButton("No", new DialogInterface.OnClickListener(){

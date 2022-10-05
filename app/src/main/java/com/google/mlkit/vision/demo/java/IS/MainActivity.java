@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         Button loginBtn = this.<Button>findViewById(R.id.loginBtn);
         EditText editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         EditText editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        editTextEmail.setText("ahmad@mail.com");
-        editTextPassword.setText("admin123");
+//        editTextEmail.setText("ahmad@mail.com");
+//        editTextPassword.setText("admin123");
         loginBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String email = editTextEmail.getText().toString();

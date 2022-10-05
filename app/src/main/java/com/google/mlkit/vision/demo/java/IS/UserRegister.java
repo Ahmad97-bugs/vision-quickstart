@@ -30,11 +30,12 @@ public class UserRegister extends AppCompatActivity {
     private TextView name;
     private TextView email;
     private TextView password;
-    private TextView date;
+    private TextView cPassword;
     private FirebaseAuth mAuth;
     private String REmail;
     private String RPassword;
     private String RName;
+    private String RcPassword;
     Context ctx;
 
     @Override
@@ -49,7 +50,7 @@ public class UserRegister extends AppCompatActivity {
         name = findViewById(R.id.userTxt);
         email = findViewById(R.id.mailTxt);
         password = findViewById(R.id.passTxt);
-        date = findViewById(R.id.textDate);
+        cPassword = findViewById(R.id.secondPassword);
         Button save = findViewById(R.id.saveBtn);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,19 +58,21 @@ public class UserRegister extends AppCompatActivity {
                 REmail = email.getText().toString();
                 RPassword = password.getText().toString();
                 RName = name.getText().toString();
+                RcPassword = cPassword.getText().toString();
                 if (!RName.equals("")) {
                     if (!REmail.equals("")) {
                         if (!RPassword.equals("")) {
-                                mAuth.fetchSignInMethodsForEmail(REmail).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                           if(RcPassword.equals(RPassword)) {
+                                mAuth.fetchSignInMethodsForEmail(REmail).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>(){
                                     @Override
-                                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
-                                        boolean check = !task.getResult().getSignInMethods().isEmpty();
-                                        if(!check){
-                                            if (REmail != null && RPassword != null) {
-                                                mAuth.createUserWithEmailAndPassword(REmail, RPassword).addOnCompleteListener(UserRegister.this, new OnCompleteListener<AuthResult>() {
+                                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task){
+                                        boolean check = ! task.getResult().getSignInMethods().isEmpty();
+                                        if(! check){
+                                            if(REmail != null && RPassword != null){
+                                                mAuth.createUserWithEmailAndPassword(REmail, RPassword).addOnCompleteListener(UserRegister.this, new OnCompleteListener<AuthResult>(){
                                                     @Override
-                                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                                        if (task.isSuccessful()) {
+                                                    public void onComplete(@NonNull Task<AuthResult> task){
+                                                        if(task.isSuccessful()){
                                                             User user = new User(mAuth.getUid(), name.getText().toString(), email.getText().toString(), password.getText().toString());
                                                             DatabaseManager.getInstance().createUser(user);
                                                             Snackbar snackbar = Snackbar
@@ -77,7 +80,7 @@ public class UserRegister extends AppCompatActivity {
                                                             snackbar.show();
                                                             Intent intent = new Intent(UserRegister.this, ChooserActivity.class);
                                                             startActivity(intent);
-                                                        } else {
+                                                        } else{
                                                             Toast.makeText(UserRegister.this, task.getException().toString(), Toast.LENGTH_LONG);
                                                         }
                                                     }
@@ -88,6 +91,9 @@ public class UserRegister extends AppCompatActivity {
                                         }
                                     }
                                 });
+                            } else{
+                               Toast.makeText(ctx, "Your password does not match", Toast.LENGTH_LONG).show();
+                           }
                         } else {
                             Toast.makeText(ctx, "Password field is empty", Toast.LENGTH_LONG).show();
                         }

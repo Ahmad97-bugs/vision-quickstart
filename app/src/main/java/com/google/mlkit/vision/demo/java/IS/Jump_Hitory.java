@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class JumpGraph extends AppCompatActivity{
+public class Jump_Hitory extends AppCompatActivity{
     List<Jump> jumps;
     private FirebaseAuth mAuth;
     LinearLayout layout;
