@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -20,12 +21,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class Jump_Hitory extends AppCompatActivity{
+public class Jump_History extends AppCompatActivity{
     List<Jump> jumps;
     private FirebaseAuth mAuth;
     LinearLayout layout;
     String pattern;
     DateFormat df;
+    Button deleteAll;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -40,6 +42,13 @@ public class Jump_Hitory extends AppCompatActivity{
         for(Jump j : jumps){
             addCard(j);
         }
+        Button dltAll = (Button) findViewById(R.id.deleteAll);
+        dltAll.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Firebase.getInstance().deleteAllJumps(mAuth.getUid());
+                startActivity(new Intent(Jump_History.this, Jump_History.class));
+            }
+        });
     }
 
 

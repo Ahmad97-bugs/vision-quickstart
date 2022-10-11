@@ -38,7 +38,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.mlkit.vision.demo.BuildConfig;
 import com.google.mlkit.vision.demo.R;
 import com.google.mlkit.vision.demo.java.IS.DatabaseManager;
-import com.google.mlkit.vision.demo.java.IS.Jump_Hitory;
+import com.google.mlkit.vision.demo.java.IS.Jump_History;
 
 /**
  * Demo app chooser which allows you pick from all available testing Activities.
@@ -54,11 +54,11 @@ public final class ChooserActivity extends AppCompatActivity
             VERSION.SDK_INT < VERSION_CODES.LOLLIPOP
                     ? new Class<?>[]{
                     Record_New_Jump.class,
-                    Jump_Hitory.class
+                    Jump_History.class
             }
                     : new Class<?>[]{
                     Record_New_Jump.class,
-                    Jump_Hitory.class
+                    Jump_History.class
             };
 
     private static final int[] DESCRIPTION_IDS =
