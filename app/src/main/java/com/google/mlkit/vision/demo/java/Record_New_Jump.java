@@ -251,7 +251,8 @@ public final class Record_New_Jump extends AppCompatActivity
         TextView jumpText = view.findViewById(R.id.jumpText);
         jumpText.setText("Do you want to add this jump record to your history?");
         builder.setView(view);
-        builder.setTitle("Do you want to keep the jump of height "+ jumpPopup +"?").setPositiveButton("Yes", new DialogInterface.OnClickListener(){
+        String str = String.format("%.02f", jumpPopup);
+        builder.setTitle("Do you want to keep the jump of height "+ str +"?").setPositiveButton("Yes", new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int which){
                 Jump jump = new Jump(mAuth.getUid(), jumpPopup, System.currentTimeMillis());
