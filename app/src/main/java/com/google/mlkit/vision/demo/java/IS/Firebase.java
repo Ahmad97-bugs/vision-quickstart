@@ -118,11 +118,8 @@ public class Firebase{
     }
 
     public void deleteAllJumps(String userID){
-        db.collection("jumps").document(userID).delete().addOnSuccessListener(new OnSuccessListener<Void>(){
-            @Override
-            public void onSuccess(Void unused){
-                DatabaseManager.getInstance().getJumps(userID);
-            }
-        });
+        for(Jump j : DatabaseManager.getInstance().getJumps(userID)){
+            deleteJump(j, userID);
+        }
     }
 }

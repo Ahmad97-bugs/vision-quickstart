@@ -18,6 +18,7 @@ import com.google.mlkit.vision.demo.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class Jump_History extends AppCompatActivity{
     LinearLayout layout;
     String pattern;
     DateFormat df;
-    Button deleteAll;
+
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -46,7 +47,9 @@ public class Jump_History extends AppCompatActivity{
         dltAll.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 Firebase.getInstance().deleteAllJumps(mAuth.getUid());
-                startActivity(new Intent(Jump_History.this, Jump_History.class));
+                DatabaseManager.getInstance().setJumps(new ArrayList<Jump>());
+                finish();
+                startActivity(getIntent());
             }
         });
     }

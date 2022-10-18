@@ -36,22 +36,25 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = editTextEmail.getText().toString();
                 String password = editTextPassword.getText().toString();
-
-                // validate user using firebase
-                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(MainActivity.this, "Hello, " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this, ChooserActivity.class);
-                            intent.putExtra("authID", mAuth.getUid());
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(MainActivity.this, "Sorry, your password was incorrect.", Toast.LENGTH_SHORT).show();
+                if(!email.equals("") && !password.equals("")){
+                    // validate user using firebase
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>(){
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task){
+                            if(task.isSuccessful()){
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                Toast.makeText(MainActivity.this, "Hello, " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(MainActivity.this, ChooserActivity.class);
+                                intent.putExtra("authID", mAuth.getUid());
+                                startActivity(intent);
+                            } else{
+                                Toast.makeText(MainActivity.this, "Sorry, your password was incorrect.", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+                } else{
+                    Toast.makeText(MainActivity.this,"Please enter your data", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

@@ -30,6 +30,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -84,6 +85,9 @@ public final class Record_New_Jump extends AppCompatActivity
         if(graphicOverlay == null){
             Log.d(TAG, "graphicOverlay is null");
         }
+
+        Spinner spinner = findViewById(R.id.spinner);
+        spinner.setVisibility(View.GONE);
         mAuth = FirebaseAuth.getInstance();
         Button record = (Button) findViewById(R.id.recordBtn);
         record.setText("Start Recording");
