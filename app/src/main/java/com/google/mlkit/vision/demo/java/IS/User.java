@@ -1,6 +1,12 @@
 package com.google.mlkit.vision.demo.java.IS;
 
-
+/**
+ * basic user class
+ * id to distinguish users
+ * name of user
+ * email of user
+ * password for user
+ */
 public class User {
     private String id;
     private String name;

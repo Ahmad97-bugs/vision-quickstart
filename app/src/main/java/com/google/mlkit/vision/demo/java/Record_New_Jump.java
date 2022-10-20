@@ -54,6 +54,8 @@ import java.io.IOException;
 
 /**
  * Live preview demo for ML Kit APIs.
+ * track skeleton of recorded user and determine height of their jump
+ * algorithm tracks in PoseClassifierProcessor class
  */
 @KeepName
 public final class Record_New_Jump extends AppCompatActivity
@@ -251,6 +253,7 @@ public final class Record_New_Jump extends AppCompatActivity
         TextView jumpText = view.findViewById(R.id.jumpText);
         jumpText.setText("Do you want to add this jump record to your history?");
         builder.setView(view);
+
         String str = String.format("%.02f", jumpPopup);
         builder.setTitle("Do you want to keep the jump of height "+ str +"?").setPositiveButton("Yes", new DialogInterface.OnClickListener(){
             @Override

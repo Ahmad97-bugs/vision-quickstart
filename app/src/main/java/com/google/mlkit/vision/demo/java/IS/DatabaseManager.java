@@ -5,7 +5,11 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * class to hold an instance of data from firebase for current run/cache when app is open
+ * instance - singleton instance for class
+ * jumps list of jumps fetched from firebase for authenticated user
+ */
 public class DatabaseManager{
     private static DatabaseManager instance = null;
     private Context context = null;

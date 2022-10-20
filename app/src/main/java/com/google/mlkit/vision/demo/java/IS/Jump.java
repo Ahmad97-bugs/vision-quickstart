@@ -2,6 +2,13 @@ package com.google.mlkit.vision.demo.java.IS;
 
 import java.util.Date;
 
+/**
+ * basic jump class
+ * junpID id for jump
+ * userID id for user that jump belongs to
+ * height measure the height of the jump
+ * date the date jump was recorded
+ */
 public class Jump {
     private String jumpID;
     private String userID;

@@ -26,6 +26,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * activity to register new user to system
+ * name field
+ * email field
+ * password and confirm password field
+ * mAuth to create authentication for user to log in
+ * REmail register email - confirm not empty field
+ * RPassword register password - confirm not empty field
+ * RName register name - confirm not empty field
+ * RcPassword  register confirmed password - confirm not empty field
+ */
 public class UserRegister extends AppCompatActivity {
     private TextView name;
     private TextView email;
@@ -52,6 +63,7 @@ public class UserRegister extends AppCompatActivity {
         password = findViewById(R.id.passTxt);
         cPassword = findViewById(R.id.secondPassword);
         Button save = findViewById(R.id.saveBtn);
+        //button to validate fields and confirm new user authentication
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -27,6 +27,7 @@ public class Firebase{
         return instance;
     }
 
+    //add user u to firebase
     public void createUser(User u){
         db.collection("users")
                 .document(u.getEmail()).set(u)
@@ -42,6 +43,8 @@ public class Firebase{
                 });
     }
 
+
+    //add jump j to firebase
     public void createJump(Jump j){
         db.collection("jumps")
                 .document(j.getUserID()).collection(String.valueOf(1)).document().set(j)
@@ -57,6 +60,8 @@ public class Firebase{
                 });
     }
 
+
+    //fetch all users from firebase
     public List<User> getAllUsers(){
         List<User> userList = new ArrayList<>();
         db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
@@ -79,6 +84,7 @@ public class Firebase{
         return userList;
     }
 
+    //fetch all jumps for specific user form firebase
     public void getAllJumps(String userID){
         List<Jump> jumpList = new ArrayList<>();
         db.collection("jumps/" + userID + "/1").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
@@ -100,6 +106,8 @@ public class Firebase{
         });
     }
 
+
+    //delete a specific jump for user
     public void deleteJump(Jump j, String userID){
         db.collection("jumps/" + userID + "/1")
                 .document(j.getJumpID())
@@ -117,6 +125,8 @@ public class Firebase{
                 });
     }
 
+
+    //delete all jumps for specific user
     public void deleteAllJumps(String userID){
         for(Jump j : DatabaseManager.getInstance().getJumps(userID)){
             deleteJump(j, userID);

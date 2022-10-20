@@ -22,6 +22,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * activity to view the history of the user's jumps
+ * jumps the list of recorded jumps for user
+ * mAuth the authentication for user connected to firebase
+ * pattern for date format
+ */
 public class Jump_History extends AppCompatActivity{
     List<Jump> jumps;
     private FirebaseAuth mAuth;

@@ -2,7 +2,12 @@ package com.google.mlkit.vision.demo.java.posedetector;
 
 import com.google.mlkit.vision.pose.Pose;
 
-
+/**
+ * class used to store pose data throughout the recording
+ * time for when each pose happened - milliseconds difference between instances
+ * pose tracks 32 points in body
+ *
+ */
 
 public class PoseData {
     private Long time;
