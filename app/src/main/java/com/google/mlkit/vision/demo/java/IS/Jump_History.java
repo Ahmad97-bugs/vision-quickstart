@@ -1,10 +1,7 @@
 package com.google.mlkit.vision.demo.java.IS;
 
 import androidx.annotation.RequiresApi;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;

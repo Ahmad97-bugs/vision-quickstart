@@ -151,4 +151,6 @@
     <string name="register">Register</string>
     <string name="Login">Login</string>
 
+    <string name="howTo">Learn how to jump</string>
+
 </resources>

@@ -31,6 +31,9 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat">
         <activity
+            android:name=".java.IS.Instructions"
+            android:exported="false" />
+        <activity
             android:name=".java.IS.Jump_History"
             android:exported="false" />
         <activity

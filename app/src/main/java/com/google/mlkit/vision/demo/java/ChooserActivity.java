@@ -38,6 +38,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.mlkit.vision.demo.BuildConfig;
 import com.google.mlkit.vision.demo.R;
 import com.google.mlkit.vision.demo.java.IS.DatabaseManager;
+import com.google.mlkit.vision.demo.java.IS.Instructions;
 import com.google.mlkit.vision.demo.java.IS.Jump_History;
 
 /**
@@ -54,22 +55,26 @@ public final class ChooserActivity extends AppCompatActivity
             VERSION.SDK_INT < VERSION_CODES.LOLLIPOP
                     ? new Class<?>[]{
                     Record_New_Jump.class,
-                    Jump_History.class
+                    Jump_History.class,
+                    Instructions.class
             }
                     : new Class<?>[]{
                     Record_New_Jump.class,
-                    Jump_History.class
+                    Jump_History.class,
+                    Instructions.class
             };
 
     private static final int[] DESCRIPTION_IDS =
             VERSION.SDK_INT < VERSION_CODES.LOLLIPOP
                     ? new int[]{
                     R.string.desc_camera_source_activity,
-                    R.string.jump_graph_activity
+                    R.string.jump_graph_activity,
+                    R.string.howTo
             }
                     : new int[]{
                     R.string.desc_camera_source_activity,
-                    R.string.jump_graph_activity
+                    R.string.jump_graph_activity,
+                    R.string.howTo
             };
 
     @Override
