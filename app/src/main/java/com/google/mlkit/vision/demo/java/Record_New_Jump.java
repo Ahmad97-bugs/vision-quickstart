@@ -46,6 +46,7 @@ import com.google.mlkit.vision.demo.java.IS.Firebase;
 import com.google.mlkit.vision.demo.java.IS.Jump;
 import com.google.mlkit.vision.demo.java.posedetector.PoseDetectorProcessor;
 import com.google.mlkit.vision.demo.java.posedetector.classification.PoseClassifierProcessor;
+import com.google.mlkit.vision.demo.java.posedetector.classification.RepetitionCounter;
 import com.google.mlkit.vision.demo.preference.PreferenceUtils;
 import com.google.mlkit.vision.demo.preference.SettingsActivity;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
@@ -99,8 +100,14 @@ public final class Record_New_Jump extends AppCompatActivity
             public void onClick(View v){
                 if(record.getText().equals("Start Recording")){
                     record.setText("Stop Recording");
+                    for(RepetitionCounter rc : PoseClassifierProcessor.getRepCounters()){
+                        rc.setRecording(true);
+                    }
                 } else{
                     record.setText("Start Recording");
+                    for(RepetitionCounter rc : PoseClassifierProcessor.getRepCounters()){
+                        rc.setRecording(false);
+                    }
                     double jumpHeight = PoseClassifierProcessor.calculatedJumpHeight();
                     if(jumpHeight == (double) 0){
                         Toast.makeText(Record_New_Jump.this, "No jump was recorded", Toast.LENGTH_LONG).show();
@@ -262,12 +269,12 @@ public final class Record_New_Jump extends AppCompatActivity
                 Firebase.getInstance().createJump(jump);
                 DatabaseManager.getInstance().getJumps(mAuth.getUid()).add(jump);
                 startActivity(new Intent(Record_New_Jump.this, ChooserActivity.class));
-
             }
         }).setNegativeButton("No", new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int which){
-
+                finish();
+                startActivity(getIntent());
             }
         });
         dialog = builder.create();
