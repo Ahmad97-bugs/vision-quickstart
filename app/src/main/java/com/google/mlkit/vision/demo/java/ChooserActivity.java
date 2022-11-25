@@ -42,7 +42,7 @@ import com.google.mlkit.vision.demo.java.IS.Instructions;
 import com.google.mlkit.vision.demo.java.IS.Jump_History;
 
 /**
- * Demo app chooser which allows you pick from all available testing Activities.
+ * main page allowing the user to choose what activity to start from there.
  */
 public final class ChooserActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener{

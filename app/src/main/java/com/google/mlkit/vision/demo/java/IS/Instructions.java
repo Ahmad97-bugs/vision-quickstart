@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+/**
+ * intent to show the user examples on how to jump
+ */
 public class Instructions extends AppCompatActivity{
     ImageView stand;
     ImageView down;

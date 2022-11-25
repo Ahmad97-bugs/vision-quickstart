@@ -58,7 +58,7 @@ public class Jump_History extends AppCompatActivity{
     }
 
 
-
+    //opens a window the asks the user to delete jump entries
     private void addCard(Jump j){
         View view = getLayoutInflater().inflate(R.layout.card, null);
         TextView heightView = view.findViewById(R.id.height);

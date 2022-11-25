@@ -15,6 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * allows connection to FB data
+ */
+
 public class Firebase{
     //    private Context context;
     private static Firebase instance = null;
