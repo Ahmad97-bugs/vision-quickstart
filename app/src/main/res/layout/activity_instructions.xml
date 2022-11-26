@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/stand"
-        android:layout_width="330dp"
-        android:layout_height="629dp"
+        android:layout_width="332dp"
+        android:layout_height="536dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/down"
-        android:layout_width="330dp"
-        android:layout_height="629dp"
+        android:layout_width="331dp"
+        android:layout_height="536dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -33,10 +33,10 @@
     <ImageView
         android:id="@+id/jump"
         android:layout_width="330dp"
-        android:layout_height="629dp"
+        android:layout_height="536dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -63,4 +63,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/next"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/instuctions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="150dp"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@+id/stand" />
 </androidx.constraintlayout.widget.ConstraintLayout>
