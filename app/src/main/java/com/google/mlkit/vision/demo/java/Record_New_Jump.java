@@ -110,12 +110,12 @@ public final class Record_New_Jump extends AppCompatActivity
                     }
                     double jumpHeight = PoseClassifierProcessor.calculatedJumpHeight();
                     if(jumpHeight == (double) 0){
-                        Toast.makeText(Record_New_Jump.this, "No jump was recorded", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Record_New_Jump.this, "No jump was recorded, go to instructions to learn how to record a jump", Toast.LENGTH_LONG).show();
                     } else{
                         jumpPopup = (float) jumpHeight;
                         buildDialog();
                         dialog.show();
-                        Toast.makeText(Record_New_Jump.this, "Jump height is: " + jumpHeight + "cm", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Record_New_Jump.this, "Jump height is: " + String.format("%.02f", jumpHeight) + "cm", Toast.LENGTH_LONG).show();
                     }
                 }
             }
